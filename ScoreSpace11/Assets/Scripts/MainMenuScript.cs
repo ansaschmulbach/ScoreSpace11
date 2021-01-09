@@ -15,6 +15,17 @@ public class MainMenuScript : MonoBehaviour
     {
         
     }
+
+    public void LoadTutorial()
+    {
+        GameManager.instance.LoadTutorial();
+    }
+    
+    public void LaunchGame()
+    {
+        GameManager.instance.LoadGame();
+    }
+    
     public void callLeaderboardTransition()
     {
         GameManager.instance.LoadToLeaderboard();
