@@ -86,7 +86,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6f06c9162af1e4989bf72180b62e50df, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeToTeleport: 3
   beaming: 0
   pointsPerCow: 4
   health: {fileID: 0}
@@ -365,7 +364,8 @@ GameObject:
   - component: {fileID: 8712038448713786757}
   - component: {fileID: 8712038448713786752}
   - component: {fileID: 1399498413562061453}
-  m_Layer: 0
+  - component: {fileID: 7443608071222110354}
+  m_Layer: 8
   m_Name: SpaceShip
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -485,7 +485,7 @@ BoxCollider2D:
   m_IsTrigger: 0
   m_UsedByEffector: 0
   m_UsedByComposite: 0
-  m_Offset: {x: 0, y: 1.6117098}
+  m_Offset: {x: 0, y: 1.9586005}
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
@@ -496,7 +496,7 @@ BoxCollider2D:
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 3.5, y: 2.058498}
+  m_Size: {x: 3.5, y: 2.7522793}
   m_EdgeRadius: 0
 --- !u!114 &1399498413562061453
 MonoBehaviour:
@@ -512,6 +512,32 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealth: 10
   healthSlider: {fileID: 7534015133747450941}
+--- !u!61 &7443608071222110354
+BoxCollider2D:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8712038448713786762}
+  m_Enabled: 1
+  m_Density: 1
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_UsedByEffector: 0
+  m_UsedByComposite: 0
+  m_Offset: {x: 0, y: 0}
+  m_SpriteTilingProperty:
+    border: {x: 0, y: 0, z: 0, w: 0}
+    pivot: {x: 0.5, y: 0.5}
+    oldSize: {x: 3.5, y: 5.5}
+    newSize: {x: 3.5, y: 7}
+    adaptiveTilingThreshold: 0.5
+    drawMode: 0
+    adaptiveTiling: 0
+  m_AutoTiling: 0
+  serializedVersion: 2
+  m_Size: {x: 3.5, y: 5.5}
+  m_EdgeRadius: 0
 --- !u!1001 &5066744455847955663
 PrefabInstance:
   m_ObjectHideFlags: 0

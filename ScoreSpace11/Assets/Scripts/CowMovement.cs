@@ -12,23 +12,36 @@ public class CowMovement : MonoBehaviour
     [SerializeField] private float moveTimeAvg = 3;
     [SerializeField] private float speed = 5;
     private Animator cowAnimator;
+    private CowController cowController;
     [SerializeField] private float movementTimer;
     private Vector3 destination;
     private Vector3[] directions = new[] {Vector3.left, Vector3.right, 
         Vector3.up, Vector3.down};
 
+    private GameState gameState;
+
     void Start()
     {
         UpdateZ();
+        gameState = GameManager.instance.gameState;
         movementTimer = Random.Range(moveTimeAvg - 1, moveTimeAvg + 1);
         destination = this.transform.position;
         cowAnimator = GetComponent<Animator>();
+        cowController = GetComponent<CowController>();
     }
 
     
     void Update()
     {
         movementTimer -= Time.deltaTime;
+        if (!(gameState.freezeBeam && cowController.inTeleport))
+        {
+            Move();
+        }
+    }
+
+    void Move()
+    {
         if (movementTimer <= 0 && this.destination == this.transform.position)
         {
             MoveRandom();
@@ -38,10 +51,10 @@ public class CowMovement : MonoBehaviour
         {
             MoveDestination();
         }
-
+        
         UpdateZ();
     }
-
+    
     void UpdateZ()
     {
         Vector3 pos = this.transform.position;
@@ -75,7 +88,7 @@ public class CowMovement : MonoBehaviour
 
     void SetCowAnimator(Vector3 dir)
     {
-        if (cowAnimator)
+        if (cowAnimator && cowAnimator.parameterCount > 0)
         {
             cowAnimator.SetFloat("speed", dir.magnitude);
         }
