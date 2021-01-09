@@ -33,14 +33,14 @@ public class ScoreBoard : MonoBehaviour
     }
     IEnumerator DownloadHighscoresFromDatabase()
     {
-        WWW www = new WWW(webURL + publicCode + "/pipe/");
+        WWW www = new WWW(webURL + publicCode + "/pipe/0/10");
         yield return www;
         if (string.IsNullOrEmpty(www.error)) {
             FormatHighscores(www.text);
             highscoresDisplay.OnHighscoresDownloaded(highscoresList);
         }
         else {
-            print("Upload Failed: " + www.error);
+            print("Download Failed: " + www.error);
         }
     }
     void FormatHighscores(string textInput) {
