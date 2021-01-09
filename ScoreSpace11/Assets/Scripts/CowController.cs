@@ -7,6 +7,7 @@ public class CowController : MonoBehaviour
 
     public int damage;
     public int pointValue;
+    public bool inTeleport;
 
     public void Teleport()
     {

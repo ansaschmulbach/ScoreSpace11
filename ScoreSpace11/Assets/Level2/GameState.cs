@@ -9,5 +9,8 @@ public class GameState
     
     public int score = 0;
     public int money = 0;
+    public float timeToTeleport = 3;
+    public float multiplierTeleportSpeed = 1f;
+    public bool freezeBeam;
 
 }
