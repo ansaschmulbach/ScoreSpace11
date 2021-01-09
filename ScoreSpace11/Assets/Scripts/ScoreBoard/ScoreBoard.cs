@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
 public class ScoreBoard : MonoBehaviour
 {
@@ -14,14 +15,14 @@ public class ScoreBoard : MonoBehaviour
         highscoresDisplay = GetComponent<DisplayScores>();
         //AddNewHighscore("oliver", 200);
         //AddNewHighscore("ansa", 500);
-        //DownloadHighscores();
+        DownloadHighscores();
     }
     public void AddNewHighscore(string username, int score) {
         StartCoroutine(UploadNewHighscore(username, score));
     }
     IEnumerator UploadNewHighscore(string username, int score) {
-        WWW www = new WWW(webURL + privateCode + "/add/" + WWW.EscapeURL(username) + "/" + score);
-        yield return www;
+        UnityWebRequest www = UnityWebRequest.Get(webURL + privateCode + "/add/" + UnityWebRequest.EscapeURL(username) + "/" + score);
+        yield return www.Send();
         if (string.IsNullOrEmpty(www.error)) {
             print("Upload Successful!");
         } else {
@@ -33,10 +34,10 @@ public class ScoreBoard : MonoBehaviour
     }
     IEnumerator DownloadHighscoresFromDatabase()
     {
-        WWW www = new WWW(webURL + publicCode + "/pipe/0/10");
-        yield return www;
-        if (string.IsNullOrEmpty(www.error)) {
-            FormatHighscores(www.text);
+        UnityWebRequest www = UnityWebRequest.Get(webURL + publicCode + "/pipe/0/10");
+        yield return www.Send();
+        if (!www.isError) {
+            FormatHighscores(www.downloadHandler.text);
             highscoresDisplay.OnHighscoresDownloaded(highscoresList);
         }
         else {
@@ -52,7 +53,7 @@ public class ScoreBoard : MonoBehaviour
             string username = entryInfo[0];
             int score = int.Parse(entryInfo[1]);
             highscoresList[i] = new Highscore(username, score);
-            print(username + " : " + score);
+            print(highscoresList[i].username + " : " + highscoresList[i].score);
         }
     }
 }
