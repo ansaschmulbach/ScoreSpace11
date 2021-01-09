@@ -18,7 +18,7 @@ public class AudioManager : MonoBehaviour
     {
         if(BgSource != null)
         {
-            return;
+            BgSource.Stop();
         }
         GameObject gameObject = new GameObject("BackgroundMusic");
         gameObject.transform.parent = manager.transform;

@@ -151,7 +151,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4adc11c0c5a0a5f4c8f9cf3fe7bb9a3b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  soundAffect: {fileID: 8300000, guid: 9303eaef1d07bf3499e147ecb69b61e6, type: 3}
+  soundAffect: {fileID: 8300000, guid: 17e5c8c81edf9a544b09ce7dcf98d863, type: 3}
   manager: {fileID: 31038905}
 --- !u!114 &31038905
 MonoBehaviour:
