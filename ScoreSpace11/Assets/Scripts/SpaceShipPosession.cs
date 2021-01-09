@@ -13,13 +13,17 @@ public class SpaceShipPosession : MonoBehaviour
     public bool beaming;
     private float beamingTimer;
     [SerializeField] private int pointsPerCow;
-    
+    private GameState gameState;
     
     void Start()
     {
         inTeleport = new ArrayList();
         beamingTimer = timeToTeleport;
         beaming = false;
+        if (GameManager.instance)
+        {
+            gameState = GameManager.instance.gameState;
+        }
     }
 
     // Update is called once per frame
@@ -70,8 +74,12 @@ public class SpaceShipPosession : MonoBehaviour
             }
             Destroy(obj);
         }
-        GameManager.instance.gameState.score += cowCount * pointsPerCow;
-        Debug.Log(GameManager.instance.gameState.score);
+
+        if (gameState != null)
+        {
+            gameState.score += cowCount * pointsPerCow;
+        }
+        
     }
 
 }
