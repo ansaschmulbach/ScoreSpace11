@@ -29,12 +29,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7093723076089816934}
-  m_RootOrder: 1
+  m_Father: {fileID: 4877837995812864522}
+  m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.000012397766}
+  m_AnchoredPosition: {x: 0, y: -0.000011444092}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7642851507039367136
@@ -121,8 +121,6 @@ RectTransform:
   m_LocalScale: {x: 0.02, y: 0.02, z: 1}
   m_Children:
   - {fileID: 4877837995812864522}
-  - {fileID: 2539016885591691457}
-  - {fileID: 6353157802404829913}
   m_Father: {fileID: 8712038448713786758}
   m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -220,12 +218,12 @@ RectTransform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
-  m_Father: {fileID: 7093723076089816934}
-  m_RootOrder: 2
+  m_Father: {fileID: 4877837995812864522}
+  m_RootOrder: 1
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
-  m_AnchoredPosition: {x: 0, y: 0.000012397766}
+  m_AnchoredPosition: {x: 0, y: -0.000011444092}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &7571554896454645452
@@ -292,7 +290,9 @@ RectTransform:
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
+  m_Children:
+  - {fileID: 2539016885591691457}
+  - {fileID: 6353157802404829913}
   m_Father: {fileID: 7093723076089816934}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -364,6 +364,7 @@ GameObject:
   - component: {fileID: 8712038448713786756}
   - component: {fileID: 8712038448713786757}
   - component: {fileID: 8712038448713786752}
+  - component: {fileID: 1399498413562061453}
   m_Layer: 0
   m_Name: SpaceShip
   m_TagString: Player
@@ -497,6 +498,20 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 3.5, y: 2.058498}
   m_EdgeRadius: 0
+--- !u!114 &1399498413562061453
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8712038448713786762}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 67925bd9c6a6e4656b5e2225c8e80d06, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  maxHealth: 10
+  healthSlider: {fileID: 7534015133747450941}
 --- !u!1001 &5066744455847955663
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -25,7 +25,8 @@ public class SpaceShipPosession : MonoBehaviour
         {
             gameState = GameManager.instance.gameState;
         }
-        health = GetComponent<Health>();
+
+        health = GetComponentInParent<Health>();
     }
 
     // Update is called once per frame

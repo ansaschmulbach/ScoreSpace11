@@ -934,7 +934,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 83c1c9d73d5194b6ab0727db8a030d43, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  vectorDelta: {x: 0.5, y: 0.7}
+  vectorDelta: {x: 0.5, y: 0.65}
 --- !u!81 &1358926382
 AudioListener:
   m_ObjectHideFlags: 0
