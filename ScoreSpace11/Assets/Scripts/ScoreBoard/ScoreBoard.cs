@@ -36,7 +36,7 @@ public class ScoreBoard : MonoBehaviour
     {
         UnityWebRequest www = UnityWebRequest.Get(webURL + publicCode + "/pipe/0/10");
         yield return www.Send();
-        if (!www.isError) {
+        if (!www.isNetworkError) {
             FormatHighscores(www.downloadHandler.text);
             highscoresDisplay.OnHighscoresDownloaded(highscoresList);
         }
