@@ -42,7 +42,6 @@ public class CowMovement : MonoBehaviour
         float y = Random.Range(-1f, 1f);
         Vector3 direction = new Vector3(x, y);
         destination = this.transform.position + direction;
-        Debug.Log(direction);
     }
 
     void MoveDestination()
