@@ -16,6 +16,10 @@ public class AudioManager : MonoBehaviour
     }
     public void StartBgSound(AudioClip clip, Vector3 position, float volume = 1f)
     {
+        if(BgSource != null)
+        {
+            return;
+        }
         GameObject gameObject = new GameObject("BackgroundMusic");
         gameObject.transform.parent = manager.transform;
         BgSource = gameObject.AddComponent<AudioSource>();
@@ -24,6 +28,14 @@ public class AudioManager : MonoBehaviour
         BgSource.transform.position = position;
         BgSource.clip = clip;
         BgSource.volume = volume;
+        BgSource.Play();
+    }
+    public void PauseBgSound()
+    {
+        BgSource.Pause();
+    }
+    public void ResumeBgSound()
+    {
         BgSource.Play();
     }
     

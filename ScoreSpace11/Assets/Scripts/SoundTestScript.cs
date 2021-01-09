@@ -10,10 +10,20 @@ public class SoundTestScript : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetKeyDown("space"))
+        if (Input.GetKeyDown("p"))
+        {
+            print("P KEYPRESS REGISTERED");
+            manager.StartBgSound(soundAffect, new Vector3(0, 0, 0));
+        }
+        else if (Input.GetKeyDown("space")) 
         {
             print("KEYPRESS REGISTERED");
-            manager.StartBgSound(soundAffect, new Vector3(0, 0, 0));
+            manager.PauseBgSound();
+        }
+        else if (Input.GetKeyDown("o"))
+        {
+            print("KEYPRESS REGISTERED");
+            manager.ResumeBgSound();
         }
     }
 }
