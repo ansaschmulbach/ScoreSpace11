@@ -28,12 +28,12 @@ public class GameManager : MonoBehaviour
     {
         
     }
-    void LoadGame()
+    public void LoadGame()
     {
-        
+        SceneManager.LoadScene("Field");
     }
 
-    void LoadTutorial()
+    public void LoadTutorial()
     {
         
     }
