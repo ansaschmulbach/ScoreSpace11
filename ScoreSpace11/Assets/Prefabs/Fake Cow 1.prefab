@@ -11,7 +11,6 @@ GameObject:
   - component: {fileID: 8803371613682931557}
   - component: {fileID: 3704443825201252426}
   - component: {fileID: 1680714086590958142}
-  - component: {fileID: -5425953856603726492}
   - component: {fileID: 4186714312841090744}
   m_Layer: 9
   m_Name: Fake Cow 1
@@ -110,21 +109,6 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 2, y: 1.5}
   m_EdgeRadius: 0
---- !u!114 &-5425953856603726492
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2951840642783401999}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 2e379bc725ac6488d9bffd1170eda430, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  damage: 0
-  pointValue: 0
-  inTeleport: 0
 --- !u!50 &4186714312841090744
 Rigidbody2D:
   serializedVersion: 4

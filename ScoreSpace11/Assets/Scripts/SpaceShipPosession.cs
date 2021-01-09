@@ -38,8 +38,20 @@ public class SpaceShipPosession : MonoBehaviour
         } 
         else if (Input.GetKeyDown(KeyCode.Space))
         {
-            beaming = true;
-            beamingTimer = gameState.timeToTeleport * gameState.multiplierTeleportSpeed;
+            StartBeam();
+        }
+    }
+
+    void StartBeam()
+    {
+        beaming = true;
+        beamingTimer = gameState.timeToTeleport * gameState.multiplierTeleportSpeed;
+        foreach (GameObject obj in inTeleport)
+        {
+            if (obj.TryGetComponent(out CowController cowController))
+            {
+                cowController.Teleport();
+            }
         }
     }
 
@@ -49,7 +61,12 @@ public class SpaceShipPosession : MonoBehaviour
         
         if (other.TryGetComponent(out CowController cowController))
         {
-            cowController.inTeleport = true;
+
+            if (beaming)
+            {
+                cowController.Teleport();   
+            }
+            
             inTeleport.Add(other.gameObject);
         }
         
@@ -60,7 +77,7 @@ public class SpaceShipPosession : MonoBehaviour
         
         if (other.TryGetComponent(out CowController cowController))
         {
-            cowController.inTeleport = false;
+            cowController.StopTeleport();
             inTeleport.Remove(other.gameObject);
         }
     }
