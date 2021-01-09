@@ -11,7 +11,8 @@ public class SpaceShipPosession : MonoBehaviour
     [SerializeField] private float timeToTeleport;
     private ArrayList inTeleport;
     public bool beaming;
-    [SerializeField] private float beamingTimer;
+    private float beamingTimer;
+    [SerializeField] private int pointsPerCow;
     
     
     void Start()
@@ -58,10 +59,19 @@ public class SpaceShipPosession : MonoBehaviour
 
     private void Beam()
     {
+
+        int cowCount = 0;
         for (int i = inTeleport.Count - 1; i >= 0; i --) 
         {
-            Destroy((GameObject) inTeleport[i]);   
+            GameObject obj = (GameObject) inTeleport[i];
+            if (obj.CompareTag("Cow"))
+            {
+                cowCount++;
+            }
+            Destroy(obj);
         }
+        GameManager.instance.gameState.score += cowCount * pointsPerCow;
+        Debug.Log(GameManager.instance.gameState.score);
     }
-    
+
 }
