@@ -4,15 +4,13 @@ using UnityEngine;
 
 public class CowController : MonoBehaviour
 {
-    
-    void Start()
+
+    public int damage;
+    public int pointValue;
+
+    public void Teleport()
     {
         
-    }
-
-    void Update()
-    {
-
     }
 
 }

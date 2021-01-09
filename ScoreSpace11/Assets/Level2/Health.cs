@@ -25,7 +25,7 @@ public class Health : MonoBehaviour
     {
     }
 
-    void LoseHealth(int amount)
+    public void LoseHealth(int amount)
     {
         health = Math.Max(0, health - amount);
         UpdateHealthBar();
@@ -35,7 +35,7 @@ public class Health : MonoBehaviour
         }
     }
 
-    void GainHealth(int amount)
+    public void GainHealth(int amount)
     {
         health = Math.Min(maxHealth, health + amount);
         UpdateHealthBar();

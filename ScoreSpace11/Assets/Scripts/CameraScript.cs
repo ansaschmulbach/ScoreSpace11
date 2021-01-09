@@ -28,7 +28,7 @@ public class CameraScript : MonoBehaviour
         {
             Vector3 point = camera.WorldToViewportPoint(player.position);
             Vector3 delta = player.position - camera.ViewportToWorldPoint(new
-                Vector3(vectorDelta.x, vectorDelta.y, point.z));
+                Vector3(vectorDelta.x, point.y, point.z));
             Vector3 dest = this.transform.position + delta;
             transform.position = Vector3.SmoothDamp(transform.position, dest, ref velocity, dampTime);
         }

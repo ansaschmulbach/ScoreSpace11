@@ -19,6 +19,7 @@ public class CowMovement : MonoBehaviour
 
     void Start()
     {
+        UpdateZ();
         movementTimer = Random.Range(moveTimeAvg - 1, moveTimeAvg + 1);
         destination = this.transform.position;
         cowAnimator = GetComponent<Animator>();
@@ -38,6 +39,11 @@ public class CowMovement : MonoBehaviour
             MoveDestination();
         }
 
+        UpdateZ();
+    }
+
+    void UpdateZ()
+    {
         Vector3 pos = this.transform.position;
         this.transform.position = new Vector3(pos.x, pos.y, pos.y);
     }
