@@ -262,6 +262,21 @@ PrefabInstance:
       propertyPath: m_Name
       value: SpaceShip Prototype
       objectReference: {fileID: 0}
+    - target: {fileID: 3583099830564716130, guid: 2f10c1961ba2242898f2af672e66edeb,
+        type: 3}
+      propertyPath: m_AnchorMax.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3583099830564716130, guid: 2f10c1961ba2242898f2af672e66edeb,
+        type: 3}
+      propertyPath: m_AnchorMax.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3677464209217749567, guid: 2f10c1961ba2242898f2af672e66edeb,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 2
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2f10c1961ba2242898f2af672e66edeb, type: 3}
 --- !u!1 &337817915

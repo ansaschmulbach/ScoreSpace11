@@ -13,13 +13,19 @@ public class SpaceShipPosession : MonoBehaviour
     public bool beaming;
     private float beamingTimer;
     [SerializeField] private int pointsPerCow;
-    
-    
+    private GameState gameState;
+    public Health health;
+
     void Start()
     {
         inTeleport = new ArrayList();
         beamingTimer = timeToTeleport;
         beaming = false;
+        if (GameManager.instance)
+        {
+            gameState = GameManager.instance.gameState;
+        }
+        health = GetComponent<Health>();
     }
 
     // Update is called once per frame
@@ -43,7 +49,7 @@ public class SpaceShipPosession : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Cow"))
+        if (other.CompareTag("Cow") || other.CompareTag("Bomb Cow"))
         {
             inTeleport.Add(other.gameObject);
         }
@@ -51,7 +57,7 @@ public class SpaceShipPosession : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Cow"))
+        if (other.CompareTag("Cow") || other.CompareTag("Bomb Cow"))
         {
             inTeleport.Remove(other.gameObject);
         }
@@ -64,14 +70,32 @@ public class SpaceShipPosession : MonoBehaviour
         for (int i = inTeleport.Count - 1; i >= 0; i --) 
         {
             GameObject obj = (GameObject) inTeleport[i];
+
+            if (obj.TryGetComponent(out CowController cowController))
+            {
+                cowController.Teleport();
+            }
+
             if (obj.CompareTag("Cow"))
             {
                 cowCount++;
+            } 
+            else if (obj.CompareTag("Bomb Cow"))
+            {
+                if (health)
+                {
+                    health.LoseHealth(1);
+                }
             }
+
             Destroy(obj);
         }
-        GameManager.instance.gameState.score += cowCount * pointsPerCow;
-        Debug.Log(GameManager.instance.gameState.score);
+
+        if (gameState != null)
+        {
+            gameState.score += cowCount * pointsPerCow;
+        }
+        
     }
 
 }

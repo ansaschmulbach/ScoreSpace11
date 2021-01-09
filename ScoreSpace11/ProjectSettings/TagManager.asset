@@ -5,6 +5,8 @@ TagManager:
   serializedVersion: 2
   tags:
   - Cow
+  - Bomb Cow
+  - Fake Cow
   layers:
   - Default
   - TransparentFX
