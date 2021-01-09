@@ -10,7 +10,7 @@ public class SpaceShipPosession : MonoBehaviour
 
     [SerializeField] private float timeToTeleport;
     private ArrayList inTeleport;
-    private bool beaming;
+    public bool beaming;
     [SerializeField] private float beamingTimer;
     
     

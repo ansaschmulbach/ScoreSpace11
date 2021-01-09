@@ -6,19 +6,22 @@ using Vector3 = UnityEngine.Vector3;
 
 public class SpaceShipMovement : MonoBehaviour
 {
-    private Rigidbody2D shipRB;
     [SerializeField] private float speed;
-    
+    private SpaceShipPosession posessionScript;
+
     void Start()
     {
-        shipRB = GetComponent<Rigidbody2D>();
+        posessionScript = GetComponentInChildren<SpaceShipPosession>();
     }
 
     void Update()
     {
-        float xSpeed = Input.GetAxis("Horizontal");
-        float ySpeed = Input.GetAxis("Vertical");
-        Vector3 direction = new Vector3(xSpeed, ySpeed, 0) ;
-        this.transform.position += direction * speed * Time.deltaTime;
+        if (posessionScript && !posessionScript.beaming)
+        {
+            float xSpeed = Input.GetAxis("Horizontal");
+            float ySpeed = Input.GetAxis("Vertical");
+            Vector3 direction = new Vector3(xSpeed, ySpeed, 0) ;
+            this.transform.position += direction * speed * Time.deltaTime;   
+        }
     }
 }
