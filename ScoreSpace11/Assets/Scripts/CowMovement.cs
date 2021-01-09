@@ -88,7 +88,7 @@ public class CowMovement : MonoBehaviour
 
     void SetCowAnimator(Vector3 dir)
     {
-        if (cowAnimator && cowAnimator.parameterCount > 0)
+        if (cowAnimator && cowAnimator.parameterCount > 1)
         {
             cowAnimator.SetFloat("speed", dir.magnitude);
         }
