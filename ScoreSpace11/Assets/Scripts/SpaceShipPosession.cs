@@ -8,24 +8,20 @@ public class SpaceShipPosession : MonoBehaviour
 {
     // Start is called before the first frame update
 
-    [SerializeField] private float timeToTeleport;
-    private ArrayList inTeleport;
+    public List<GameObject> inTeleport;
     public bool beaming;
-    private float beamingTimer;
+    [SerializeField] private float beamingTimer;
     [SerializeField] private int pointsPerCow;
     private GameState gameState;
     public Health health;
 
     void Start()
     {
-        inTeleport = new ArrayList();
-        beamingTimer = timeToTeleport;
+        inTeleport = new List<GameObject>();
         beaming = false;
-        if (GameManager.instance)
-        {
-            gameState = GameManager.instance.gameState;
-        }
-        health = GetComponent<Health>();
+        gameState = GameManager.instance.gameState;
+        beamingTimer = gameState.timeToTeleport * gameState.multiplierTeleportSpeed;
+        health = GetComponentInParent<Health>();
     }
 
     // Update is called once per frame
@@ -43,22 +39,28 @@ public class SpaceShipPosession : MonoBehaviour
         else if (Input.GetKeyDown(KeyCode.Space))
         {
             beaming = true;
-            beamingTimer = timeToTeleport;
+            beamingTimer = gameState.timeToTeleport * gameState.multiplierTeleportSpeed;
         }
     }
 
     private void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.CompareTag("Cow") || other.CompareTag("Bomb Cow"))
+        
+        
+        if (other.TryGetComponent(out CowController cowController))
         {
+            cowController.inTeleport = true;
             inTeleport.Add(other.gameObject);
         }
+        
     }
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        if (other.CompareTag("Cow") || other.CompareTag("Bomb Cow"))
+        
+        if (other.TryGetComponent(out CowController cowController))
         {
+            cowController.inTeleport = false;
             inTeleport.Remove(other.gameObject);
         }
     }
@@ -67,35 +69,28 @@ public class SpaceShipPosession : MonoBehaviour
     {
 
         int cowCount = 0;
+        int points = 0;
         for (int i = inTeleport.Count - 1; i >= 0; i --) 
         {
-            GameObject obj = (GameObject) inTeleport[i];
+            GameObject obj = inTeleport[i];
 
             if (obj.TryGetComponent(out CowController cowController))
             {
                 cowController.Teleport();
+                points += cowController.pointValue;
+                health.LoseHealth(cowController.damage);
             }
 
             if (obj.CompareTag("Cow"))
             {
                 cowCount++;
-            } 
-            else if (obj.CompareTag("Bomb Cow"))
-            {
-                if (health)
-                {
-                    health.LoseHealth(1);
-                }
             }
-
+            
             Destroy(obj);
         }
 
-        if (gameState != null)
-        {
-            gameState.score += cowCount * pointsPerCow;
-        }
-        
+        gameState.score += points;
+
     }
 
 }
