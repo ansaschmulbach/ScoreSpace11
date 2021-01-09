@@ -19,6 +19,7 @@ public class CowMovement : MonoBehaviour
     void Start()
     {
         movementTimer = Random.Range(moveTimeAvg - 1, moveTimeAvg + 1);
+        destination = this.transform.position;
     }
 
     
