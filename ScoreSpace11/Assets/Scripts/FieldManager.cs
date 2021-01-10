@@ -44,6 +44,12 @@ public class FieldManager : MonoBehaviour
         {
             levelGenerator.Generate(levelGenerator.cowPrototypes[i], level.cowCounts[i]);
         }
+
+        if (this.levelNum == 4)
+        {
+            BarnController barnController = FindObjectOfType<BarnController>();
+            barnController.MissileBarnState();
+        }
     }
 
     public void NextLevel()
