@@ -35,7 +35,7 @@ public class LastLevelManager : MonoBehaviour
 
     void SpawnCow()
     {
-        float nextCow = Random.Range(0, 1);
+        float nextCow = Random.Range(0f, 1f);
         for (int i = 0; i < probabilities.Length; i++)
         {
             float prob = probabilities[i];
