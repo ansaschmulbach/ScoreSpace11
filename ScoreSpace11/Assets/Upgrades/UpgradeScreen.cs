@@ -14,10 +14,13 @@ public class UpgradeScreen : MonoBehaviour
     [SerializeField] private Upgrade speed;
     [SerializeField] private Upgrade teleportSpeed;
     [SerializeField] private Upgrade freeze;
+    [SerializeField] private Upgrade blank;
 
     private Upgrade selected;
-    
-    [Serializable]
+    private FieldManager fieldManager;
+    private Canvas canvas;
+
+        [Serializable]
     public struct Upgrade
     {
         public string name;
@@ -30,7 +33,9 @@ public class UpgradeScreen : MonoBehaviour
     void Start()
     {
         gameState = GameManager.instance.gameState;
-        
+        fieldManager = FindObjectOfType<FieldManager>();
+        canvas = GetComponent<Canvas>();
+        canvas.enabled = false;
     }
     
     public void SeeShieldInfo()
@@ -68,6 +73,18 @@ public class UpgradeScreen : MonoBehaviour
             gameState.freezeBeam = true;
         }
         gameState.money -= selected.cost;
+    }
+
+    public void Quit()
+    {
+        canvas.enabled = false;
+        fieldManager.NextLevel();
+    }
+
+    public void OpenUpgradeScreen()
+    {
+        canvas.enabled = true;
+        SeeInfo(blank);
     }
     
 }
