@@ -3,6 +3,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
+using UnityEngine.UI;
+using TMPro;
 
 public class SpaceShipPosession : MonoBehaviour
 {
@@ -14,6 +16,8 @@ public class SpaceShipPosession : MonoBehaviour
     [SerializeField] private int pointsPerCow;
     private GameState gameState;
     public Health health;
+    public TextMeshProUGUI bonusPtsTxt;
+    public FadeCanvas pointsBox;
 
     void Start()
     {
@@ -22,6 +26,8 @@ public class SpaceShipPosession : MonoBehaviour
         gameState = GameManager.instance.gameState;
         beamingTimer = gameState.timeToTeleport * gameState.multiplierTeleportSpeed;
         health = GetComponentInParent<Health>();
+        pointsBox = (FadeCanvas) GameObject.Find("bonusPointBox").GetComponent<FadeCanvas>();
+        bonusPtsTxt = GameObject.Find("bonusPointBox").GetComponent<TextMeshProUGUI>();
     }
 
     // Update is called once per frame
@@ -110,10 +116,24 @@ public class SpaceShipPosession : MonoBehaviour
             Destroy(obj);
         }
 
+        if(cowCount > 1)
+        {
+            int bonus = (int)Math.Pow(cowCount, 2) * 3;
+            StartCoroutine(DisplayBonusPoints(bonus));
+            gameState.score += bonus;
+        }
         gameState.score += points;
         gameState.money += milkEarned;
         health.LoseHealth(damage);
 
     }
-
+    public IEnumerator DisplayBonusPoints(int pts)
+    {
+        pointsBox.FadePanel();
+        bonusPtsTxt.text = "+ " + pts + " pts";
+        yield return new WaitForSeconds(1);
+        pointsBox.FadePanel();
+        yield return null;
+    }
+    
 }
