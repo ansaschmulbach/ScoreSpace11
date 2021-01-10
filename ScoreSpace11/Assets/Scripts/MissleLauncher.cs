@@ -6,6 +6,7 @@ public class MissleLauncher : MonoBehaviour
 {
     public float min_cooldown;
     public float max_cooldown;
+    public bool active;
     private float cooldown;
     [SerializeField] MissleStart missleStart;
     // Start is called before the first frame update
@@ -17,15 +18,18 @@ public class MissleLauncher : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if(cooldown <= 0)
+        if(active)
         {
-            //fire the missle
-            Instantiate(missleStart);
-            cooldown = Random.Range(min_cooldown, max_cooldown);
-        }
-        else
-        {
-            cooldown -= Time.deltaTime;
+            if(cooldown <= 0)
+            {
+                //fire the missle
+                Instantiate(missleStart);
+                cooldown = Random.Range(min_cooldown, max_cooldown);
+            }
+            else
+            {
+                cooldown -= Time.deltaTime;
+            }
         }
     }
 }
