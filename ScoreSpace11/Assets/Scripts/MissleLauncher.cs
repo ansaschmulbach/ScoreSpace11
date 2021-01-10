@@ -7,7 +7,7 @@ public class MissleLauncher : MonoBehaviour
     public float min_cooldown;
     public float max_cooldown;
     private float cooldown;
-    [SerializeField] Missle missle;
+    [SerializeField] MissleStart missleStart;
     // Start is called before the first frame update
     void Start()
     {
@@ -20,7 +20,7 @@ public class MissleLauncher : MonoBehaviour
         if(cooldown <= 0)
         {
             //fire the missle
-            Instantiate(missle);
+            Instantiate(missleStart);
             cooldown = Random.Range(min_cooldown, max_cooldown);
         }
         else
