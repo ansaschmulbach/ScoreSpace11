@@ -7,17 +7,7 @@ public class FadeCanvas : MonoBehaviour
     private bool isFaded = false;
     public float timeOfFade = 0.6f;
     // Start is called before the first frame update
-    void Update()
-    {
-        //Comment this out if you dont want space to toggle all canvases
-
-        /**
-        if(Input.GetKeyDown("space"))
-        {
-            FadePanel();
-        }
-        **/
-    }
+    
     /***
      * README: 
      * You must attach a CanvasGroup component to any canvas you want to fade with this script
