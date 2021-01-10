@@ -45,7 +45,7 @@ public class SpaceShipPosession : MonoBehaviour
     void StartBeam()
     {
         beaming = true;
-        beamingTimer = gameState.timeToTeleport * gameState.multiplierTeleportSpeed;
+        beamingTimer = gameState.timeToTeleport / gameState.multiplierTeleportSpeed;
         foreach (GameObject obj in inTeleport)
         {
             if (obj.TryGetComponent(out CowController cowController))

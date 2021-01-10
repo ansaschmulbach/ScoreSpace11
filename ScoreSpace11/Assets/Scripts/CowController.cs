@@ -10,16 +10,20 @@ public class CowController : MonoBehaviour
     public int pointValue;
     public bool inTeleport;
     private Animator cowAnimator;
-    
+    private GameState gameState;
+
     private void Start()
     {
         cowAnimator = GetComponent<Animator>();
+        gameState = GameManager.instance.gameState;
     }
 
     public void Teleport()
     {
         inTeleport = true;
         cowAnimator.SetBool("teleporting", true);
+        cowAnimator.speed = gameState.teleportAnimationSpeed * 
+                            gameState.multiplierTeleportSpeed;
     }
 
     public void StopTeleport()

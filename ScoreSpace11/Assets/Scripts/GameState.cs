@@ -9,8 +9,17 @@ public class GameState
     
     public int score = 0;
     public int money = 0;
+    
+    /** Upgrades **/
+    /** Teleportation **/
     public float timeToTeleport = 3;
+    public float teleportAnimationSpeed = 1f;
     public float multiplierTeleportSpeed = 1f;
+
+    /** Speed **/
+    public float baseSpeed = 5;
+    public float speedMultiplier = 1f;
+    
     public bool freezeBeam;
 
 }

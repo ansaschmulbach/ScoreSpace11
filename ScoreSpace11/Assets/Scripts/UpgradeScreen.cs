@@ -7,6 +7,7 @@ using UnityEngine.UI;
 
 public class UpgradeScreen : MonoBehaviour
 {
+    [Header("Purchasing")]
     [SerializeField] private TextMeshProUGUI descriptionTitle;
     [SerializeField] private TextMeshProUGUI descriptionText;
     [SerializeField] private Image descriptionIcon;
@@ -15,6 +16,16 @@ public class UpgradeScreen : MonoBehaviour
     [SerializeField] private Upgrade teleportSpeed;
     [SerializeField] private Upgrade freeze;
     [SerializeField] private Upgrade blank;
+
+    [Header("Current Levels")] 
+    [SerializeField]
+    private TextMeshProUGUI shieldStatus;
+    [SerializeField]
+    private TextMeshProUGUI speedStatus;
+    [SerializeField]
+    private TextMeshProUGUI teleportSpeedStatus;
+    [SerializeField]
+    private TextMeshProUGUI freezeStatus;
 
     private Upgrade selected;
     private FieldManager fieldManager;
@@ -36,6 +47,13 @@ public class UpgradeScreen : MonoBehaviour
         fieldManager = FindObjectOfType<FieldManager>();
         canvas = GetComponent<Canvas>();
         canvas.enabled = false;
+        SetStatus();
+    }
+
+    private void SetStatus()
+    {
+        teleportSpeedStatus.text = "X" + gameState.multiplierTeleportSpeed;
+        speedStatus.text = "X" + gameState.speedMultiplier;
     }
     
     public void SeeShieldInfo()
@@ -68,10 +86,21 @@ public class UpgradeScreen : MonoBehaviour
 
     public void Purchase()
     {
-        if (selected.name == "Freeze")
+        if (selected.Equals(freeze))
         {
             gameState.freezeBeam = true;
+        } 
+        else if (selected.Equals(teleportSpeed))
+        {
+            float newSpeed = gameState.multiplierTeleportSpeed * 1.5f;
+            gameState.multiplierTeleportSpeed = ((int)(newSpeed * 100))/ 100f;
+        } 
+        else if (selected.Equals(speed))
+        {
+            float newSpeed = gameState.speedMultiplier * 1.5f;
+            gameState.speedMultiplier = ((int)(newSpeed * 100))/ 100f;
         }
+        SetStatus();
         gameState.money -= selected.cost;
     }
 

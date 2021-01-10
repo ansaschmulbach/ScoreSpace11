@@ -803,6 +803,10 @@ MonoBehaviour:
     icon: {fileID: 0}
     description: N/A
     cost: 0
+  shieldStatus: {fileID: 654961717}
+  speedStatus: {fileID: 2083342973}
+  teleportSpeedStatus: {fileID: 1342094940}
+  freezeStatus: {fileID: 432547432}
 --- !u!114 &215239153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2735,14 +2739,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 0, b: 0, a: 1}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_RaycastTarget: 1
   m_Maskable: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 10905, guid: 0000000000000000f000000000000000, type: 0}
-  m_Type: 1
+  m_Sprite: {fileID: 21300000, guid: 5e8fbc06b8b7d4e19baa66872adbf57d, type: 3}
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
