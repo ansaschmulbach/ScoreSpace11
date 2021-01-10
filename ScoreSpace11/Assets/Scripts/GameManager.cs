@@ -8,7 +8,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
     public GameState gameState;
-    public AudioManager manager;
+    private AudioManager manager;
 
     void Awake()
     {
@@ -17,6 +17,7 @@ public class GameManager : MonoBehaviour
             instance = this;
             gameState = new GameState();
             DontDestroyOnLoad(this.gameObject);
+            manager = (AudioManager) Object.FindObjectOfType(typeof(AudioManager));
         }
         else if (instance != this)
         {
@@ -33,6 +34,7 @@ public class GameManager : MonoBehaviour
     {
         manager.StopBgSound();
         SceneManager.LoadScene("Field");
+        manager.StartGameSound();
     }
 
     public void LoadTutorial()
