@@ -20,7 +20,7 @@ public class UpgradeScreen : MonoBehaviour
     private FieldManager fieldManager;
     private Canvas canvas;
 
-        [Serializable]
+    [Serializable]
     public struct Upgrade
     {
         public string name;

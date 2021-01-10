@@ -2106,7 +2106,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Navigation:
-    m_Mode: 3
+    m_Mode: 0
     m_SelectOnUp: {fileID: 0}
     m_SelectOnDown: {fileID: 0}
     m_SelectOnLeft: {fileID: 0}
@@ -3331,6 +3331,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3ea17eb4b2fb7444bb4dcfb6582dbbe7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  nightTimer: 0
+  levelNum: 0
   scoreUI: {fileID: 1899233828}
 --- !u!4 &1900687289
 Transform:
@@ -3450,7 +3452,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   levels:
-  - levelLength: 60
+  - levelLength: 40
     totalCows: 10
     cowCounts: 0a0000000000000000000000000000000000000000000000
   - levelLength: 60

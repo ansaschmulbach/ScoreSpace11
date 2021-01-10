@@ -30,8 +30,7 @@ public class LevelGenerator : MonoBehaviour
     {
         
     }
-
-
+    
     public void Generate(GameObject template, int num)
     {
         for(int i = 0; i < num; i++)
