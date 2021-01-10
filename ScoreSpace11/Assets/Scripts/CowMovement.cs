@@ -42,7 +42,7 @@ public class CowMovement : MonoBehaviour
 
     void Move()
     {
-        if (movementTimer <= 0 && this.destination == this.transform.position)
+        if (movementTimer <= 0)// && this.destination == this.transform.position)
         {
             MoveRandom();
             movementTimer = Random.Range(moveTimeAvg - 1, moveTimeAvg + 1);
