@@ -23,7 +23,8 @@ public class MissleLauncher : MonoBehaviour
             if(cooldown <= 0)
             {
                 //fire the missle
-                Instantiate(missleStart);
+                MissleStart newMissle = Instantiate(missleStart);
+                newMissle.transform.position = new Vector3(this.transform.position.x - 0.7f, this.transform.position.y + 1.3f, -1);
                 cooldown = Random.Range(min_cooldown, max_cooldown);
             }
             else

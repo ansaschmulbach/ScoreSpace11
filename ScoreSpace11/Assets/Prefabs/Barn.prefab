@@ -142,7 +142,7 @@ PrefabInstance:
     - target: {fileID: 3221917247706787872, guid: 72906c9a3bc734356928635f134437e8,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: 0
+      value: -1
       objectReference: {fileID: 0}
     - target: {fileID: 3221917247706787872, guid: 72906c9a3bc734356928635f134437e8,
         type: 3}
@@ -194,6 +194,12 @@ PrefabInstance:
       propertyPath: m_Name
       value: Missle Launcher
       objectReference: {fileID: 0}
+    - target: {fileID: 3221917247706787875, guid: 72906c9a3bc734356928635f134437e8,
+        type: 3}
+      propertyPath: missleStart
+      value: 
+      objectReference: {fileID: 211654681009237616, guid: ff2e85d7a9292402294ee4529edee76f,
+        type: 3}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 72906c9a3bc734356928635f134437e8, type: 3}
 --- !u!4 &1597961936554950233 stripped
