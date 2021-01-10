@@ -23,5 +23,6 @@ public class GetName : MonoBehaviour
     public void uploadScores()
     {
         board.AddNewHighscore(this.myName, GameManager.instance.gameState.score);
+        GameManager.instance.LoadToLeaderboard();
     }
 }

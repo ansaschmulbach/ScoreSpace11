@@ -50,7 +50,6 @@ public class GameManager : MonoBehaviour
     public void LoadToLeaderboard()
     {
         SceneManager.LoadScene("leaderboard");
-        GameManager.instance.LoadToLeaderboard();
     }
 
 }
