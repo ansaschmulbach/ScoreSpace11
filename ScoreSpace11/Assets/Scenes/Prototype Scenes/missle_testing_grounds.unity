@@ -930,6 +930,10 @@ MonoBehaviour:
     icon: {fileID: 0}
     description: 
     cost: 0
+  shieldStatus: {fileID: 0}
+  speedStatus: {fileID: 0}
+  teleportSpeedStatus: {fileID: 0}
+  freezeStatus: {fileID: 0}
 --- !u!114 &215239153
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2184,105 +2188,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1026099314}
   m_CullTransparentMesh: 0
---- !u!1 &1179793916
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1179793918}
-  - component: {fileID: 1179793917}
-  - component: {fileID: 1179793919}
-  m_Layer: 0
-  m_Name: protoMissle
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!212 &1179793917
-SpriteRenderer:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1179793916}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 10754, guid: 0000000000000000f000000000000000, type: 0}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 7682d082237bc433a9bd94cefcebc352, type: 3}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1.04, y: 0.81}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
-  m_MaskInteraction: 0
-  m_SpriteSortPoint: 0
---- !u!4 &1179793918
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1179793916}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -29.07, y: 3.93, z: -39.1402}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 11
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1179793919
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1179793916}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ef8deb80f0e1a45338bb4e3b0099752c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 10
-  dmg: 2
-  missle2: {fileID: 21300000, guid: e79735252add64a3d9d1dbea316f3c4d, type: 3}
-  mt: {fileID: 930643559560488839, guid: be66514c403044a218670b47d3f8c782, type: 3}
-  me: {fileID: 3145322227133982566, guid: 674dd7ad3bc35479391aa501615dd356, type: 3}
 --- !u!1 &1316188223
 GameObject:
   m_ObjectHideFlags: 0
@@ -2738,6 +2643,75 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1493337455}
   m_CullTransparentMesh: 0
+--- !u!1001 &1586335004
+PrefabInstance:
+  m_ObjectHideFlags: 0
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications:
+    - target: {fileID: 3221917247706787872, guid: 72906c9a3bc734356928635f134437e8,
+        type: 3}
+      propertyPath: m_LocalPosition.x
+      value: -24.554
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221917247706787872, guid: 72906c9a3bc734356928635f134437e8,
+        type: 3}
+      propertyPath: m_LocalPosition.y
+      value: -2.57
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221917247706787872, guid: 72906c9a3bc734356928635f134437e8,
+        type: 3}
+      propertyPath: m_LocalPosition.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221917247706787872, guid: 72906c9a3bc734356928635f134437e8,
+        type: 3}
+      propertyPath: m_LocalRotation.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221917247706787872, guid: 72906c9a3bc734356928635f134437e8,
+        type: 3}
+      propertyPath: m_LocalRotation.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221917247706787872, guid: 72906c9a3bc734356928635f134437e8,
+        type: 3}
+      propertyPath: m_LocalRotation.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221917247706787872, guid: 72906c9a3bc734356928635f134437e8,
+        type: 3}
+      propertyPath: m_LocalRotation.w
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221917247706787872, guid: 72906c9a3bc734356928635f134437e8,
+        type: 3}
+      propertyPath: m_RootOrder
+      value: 11
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221917247706787872, guid: 72906c9a3bc734356928635f134437e8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221917247706787872, guid: 72906c9a3bc734356928635f134437e8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.y
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221917247706787872, guid: 72906c9a3bc734356928635f134437e8,
+        type: 3}
+      propertyPath: m_LocalEulerAnglesHint.z
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 3221917247706787874, guid: 72906c9a3bc734356928635f134437e8,
+        type: 3}
+      propertyPath: m_Name
+      value: Missle Launcher
+      objectReference: {fileID: 0}
+    m_RemovedComponents: []
+  m_SourcePrefab: {fileID: 100100000, guid: 72906c9a3bc734356928635f134437e8, type: 3}
 --- !u!1 &1662149073
 GameObject:
   m_ObjectHideFlags: 0
@@ -3321,6 +3295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   scoreText: {fileID: 27151491}
+  pointer: {fileID: 0}
 --- !u!114 &1899233826
 MonoBehaviour:
   m_ObjectHideFlags: 0
