@@ -6,16 +6,18 @@ public class FieldManager : MonoBehaviour
 {
 
     //[SerializeField] private float nightLength;
-    private float nightTimer;
-    private int levelNum;
+    [SerializeField] private float nightTimer;
+    [SerializeField] private int levelNum;
     private LevelGenerator.Level level;
     [SerializeField] private Canvas scoreUI;
     private UpgradeScreen upgradeScreen;
     private LevelGenerator levelGenerator;
+    private bool inNight;
 
     void Start()
     {
         levelNum = 0;
+        inNight = true;
         upgradeScreen = FindObjectOfType<UpgradeScreen>();
         levelGenerator = FindObjectOfType<LevelGenerator>();
         StartLevel();
@@ -23,15 +25,18 @@ public class FieldManager : MonoBehaviour
     
     void Update()
     {
-        nightTimer -= Time.deltaTime;
-        if (nightTimer <= 0)
+
+        nightTimer -= Time.deltaTime;   
+        if (inNight && nightTimer <= 0)
         {
+            inNight = false;
             LaunchUpdatesScreen();
         }
     }
 
     void StartLevel()
     {
+        inNight = true;
         level = levelGenerator.levels[levelNum];
         scoreUI.enabled = true;
         nightTimer = level.levelLength;

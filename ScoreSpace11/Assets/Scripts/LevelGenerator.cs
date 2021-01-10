@@ -31,8 +31,8 @@ public class LevelGenerator : MonoBehaviour
         
     }
 
-    private static float leftBound = -36f;
-    private static float rightBound = 30.3f;
+    private static float leftBound = -20f;
+    private static float rightBound = 13.3f;
     private static float upperBound = -1.1f;
     private static float lowerBound = -5.7f;
 
