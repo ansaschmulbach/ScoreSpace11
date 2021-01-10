@@ -7,10 +7,10 @@ public class SpawnDestroy : MonoBehaviour
     // Start is called before the first frame update
     public GameObject template;
     public int num;
-    public static float leftBound = -35.8f;
+    public static float leftBound = -19.8f;
     public static float rightBound = 30.2f;
     public static float upperBound = -1.0f;
-    public static float lowerBound = -3.9f;
+    public static float lowerBound = -2.8f;
 
     public void SpawnAll()
     {

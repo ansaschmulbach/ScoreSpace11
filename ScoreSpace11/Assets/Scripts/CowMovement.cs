@@ -69,19 +69,19 @@ public class CowMovement : MonoBehaviour
         float yHigh = 1f;
 
         Vector3 pos = transform.position;
-        if(pos.x <= SpawnDestroy.leftBound + 2.5)
+        if(pos.x <= Globals.leftBound + 2.5)
         {
             xLow = 0f;
         }
-        if (pos.x >= SpawnDestroy.rightBound - 2.5)
+        if (pos.x >= Globals.rightBound - 2.5)
         {
             xHigh = 0f;
         }
-        if (pos.y <= SpawnDestroy.lowerBound + 1.5)
+        if (pos.y <= Globals.lowerBound + 1.5)
         {
             yLow = 0f;
         }
-        if (pos.y >= SpawnDestroy.lowerBound - 1.5)
+        if (pos.y >= Globals.lowerBound - 1.5)
         {
             yHigh = 0f;
         }

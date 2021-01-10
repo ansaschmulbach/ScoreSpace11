@@ -9,11 +9,30 @@ public class AudioManager : MonoBehaviour
     private static readonly Queue<AudioSource> idleAudios = new Queue<AudioSource>(5);
     private static int busyCount;
     private AudioSource BgSource;
+    public AudioClip soundAffectMenu;
+    public AudioClip soundAffectGame;
+
     private void Awake()
     {
         DontDestroyOnLoad(transform.gameObject);
         manager = this;
     }
+
+    // Start is called before the first frame update
+    void Start()
+    {
+        manager.StartMenuSound();
+    }
+
+    public void StartMenuSound()
+    {
+        this.StartBgSound(soundAffectMenu, new Vector3(0, 0, 0));
+    }
+    public void StartGameSound()
+    {
+        this.StartBgSound(soundAffectGame, new Vector3(0, 0, 0));
+    }
+
     public void StartBgSound(AudioClip clip, Vector3 position, float volume = 1f)
     {
         if(BgSource != null)
@@ -38,6 +57,10 @@ public class AudioManager : MonoBehaviour
     {
         BgSource.Play();
     }
+    public void StopBgSound()
+    {
+        BgSource.Stop();
+    }
     
     public static void PlayAtPoint(AudioClip clip, Vector3 position, float volume = 1f)
     {
@@ -49,6 +72,7 @@ public class AudioManager : MonoBehaviour
         source.Play();
         manager.StartCoroutine(ExecuteCycleCoroutine(source));
     }
+
     private static AudioSource GetAudioSource()
     {
         AudioSource source;
