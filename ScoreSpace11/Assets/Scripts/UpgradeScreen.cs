@@ -17,7 +17,10 @@ public class UpgradeScreen : MonoBehaviour
     [SerializeField] private Upgrade freeze;
     [SerializeField] private Upgrade blank;
     [SerializeField] private TextMeshProUGUI milk;
+<<<<<<< HEAD
     [SerializeField] private Button purchaseButton;
+=======
+>>>>>>> b87f3e367de4aaab500f1cd9522574d4a9001185
 
     [Header("Current Levels")] 
     [SerializeField]
@@ -57,7 +60,10 @@ public class UpgradeScreen : MonoBehaviour
     {
         teleportSpeedStatus.text = "X" + gameState.multiplierTeleportSpeed;
         speedStatus.text = "X" + gameState.speedMultiplier;
+<<<<<<< HEAD
         shieldStatus.text = "X" + gameState.healthMultiplier;
+=======
+>>>>>>> b87f3e367de4aaab500f1cd9522574d4a9001185
         milk.text = gameState.money.ToString();
     }
     
