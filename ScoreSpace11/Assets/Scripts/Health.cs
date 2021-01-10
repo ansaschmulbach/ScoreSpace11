@@ -52,6 +52,10 @@ public class Health : MonoBehaviour
     void Die()
     {
         Destroy(this.gameObject);
+        if (this.CompareTag("Player"))
+        {
+            GameManager.instance.LoadEnterName();
+        }
     }
     
 }

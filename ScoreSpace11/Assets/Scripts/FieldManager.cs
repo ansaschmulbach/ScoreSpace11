@@ -12,6 +12,7 @@ public class FieldManager : MonoBehaviour
     [SerializeField] private Canvas scoreUI;
     private UpgradeScreen upgradeScreen;
     private LevelGenerator levelGenerator;
+    private ScoreDisplay scoreDisplay;
     private bool inNight;
 
     void Start()
@@ -20,6 +21,7 @@ public class FieldManager : MonoBehaviour
         inNight = true;
         upgradeScreen = FindObjectOfType<UpgradeScreen>();
         levelGenerator = FindObjectOfType<LevelGenerator>();
+        scoreDisplay = scoreUI.GetComponent<ScoreDisplay>();
         StartLevel();
     }
     
@@ -31,6 +33,9 @@ public class FieldManager : MonoBehaviour
         {
             inNight = false;
             LaunchUpdatesScreen();
+        } else if (inNight)
+        {
+            scoreDisplay.RefreshTime(nightTimer, level.levelLength);
         }
     }
 

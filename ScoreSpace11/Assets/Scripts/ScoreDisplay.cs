@@ -10,6 +10,7 @@ public class ScoreDisplay : MonoBehaviour
 
     private GameState gameState;
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private GameObject pointer;
 
     void Start()
     {
@@ -25,4 +26,12 @@ public class ScoreDisplay : MonoBehaviour
             scoreText.SetText("Score: " + gameState.score);
         }
     }
+
+    public void RefreshTime(float timeLeft, float maxTime)
+    {
+        float ratioTimeElapsed = timeLeft / maxTime;
+        float angle = ratioTimeElapsed * 180 - 90;
+        pointer.transform.eulerAngles = new Vector3(0, 0, angle);
+    }
+    
 }

@@ -41,6 +41,12 @@ public class GameManager : MonoBehaviour
     {
         
     }
+
+    public void LoadEnterName()
+    {
+        SceneManager.LoadScene("EnterName");
+    }
+    
     public void LoadToLeaderboard()
     {
         SceneManager.LoadScene("leaderboard");
