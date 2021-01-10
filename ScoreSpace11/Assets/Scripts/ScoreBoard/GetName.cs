@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
+using UnityEngine.Networking;
+using System.Text.RegularExpressions;
 
 public class GetName : MonoBehaviour
 {
@@ -11,6 +13,7 @@ public class GetName : MonoBehaviour
     
     public void storeString()
     {
+       iField.text = Regex.Replace(iField.text, "[^\\w\\._]", "");
         myName = iField.text;
     }
 
