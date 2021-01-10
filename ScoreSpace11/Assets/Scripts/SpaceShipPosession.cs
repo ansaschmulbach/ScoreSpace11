@@ -87,6 +87,8 @@ public class SpaceShipPosession : MonoBehaviour
 
         int cowCount = 0;
         int points = 0;
+        int milkEarned = 0;
+        int damage = 0;
         for (int i = inTeleport.Count - 1; i >= 0; i --) 
         {
             GameObject obj = inTeleport[i];
@@ -95,7 +97,8 @@ public class SpaceShipPosession : MonoBehaviour
             {
                 cowController.Teleport();
                 points += cowController.pointValue;
-                health.LoseHealth(cowController.damage);
+                milkEarned += cowController.milkValue;
+                damage += cowController.damage;
             }
 
             if (obj.CompareTag("Cow"))
@@ -107,6 +110,8 @@ public class SpaceShipPosession : MonoBehaviour
         }
 
         gameState.score += points;
+        gameState.money += milkEarned;
+        health.LoseHealth(damage);
 
     }
 

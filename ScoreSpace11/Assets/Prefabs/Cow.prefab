@@ -160,6 +160,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 0
   pointValue: 20
+  milkValue: 3
   inTeleport: 0
 --- !u!50 &6447656166976110737
 Rigidbody2D:
