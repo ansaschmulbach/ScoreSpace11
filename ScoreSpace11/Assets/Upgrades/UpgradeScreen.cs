@@ -35,6 +35,7 @@ public class UpgradeScreen : MonoBehaviour
         gameState = GameManager.instance.gameState;
         fieldManager = FindObjectOfType<FieldManager>();
         canvas = GetComponent<Canvas>();
+        canvas.enabled = false;
     }
     
     public void SeeShieldInfo()

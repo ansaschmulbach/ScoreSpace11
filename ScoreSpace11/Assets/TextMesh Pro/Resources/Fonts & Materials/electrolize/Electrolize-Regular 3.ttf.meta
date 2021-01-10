@@ -1,0 +1,24 @@
+fileFormatVersion: 2
+guid: 201fbfb693c274e6983235f6d177a2a3
+TrueTypeFontImporter:
+  externalObjects: {}
+  serializedVersion: 4
+  fontSize: 16
+  forceTextureCase: -2
+  characterSpacing: 0
+  characterPadding: 1
+  includeFontData: 1
+  fontName: Electrolize
+  fontNames:
+  - Electrolize
+  fallbackFontReferences:
+  - {fileID: 12800000, guid: a733ce5edc8f8044eb5f899370a2c3ac, type: 3}
+  - {fileID: 12800000, guid: 9acc108ed37e04ecf83181392676be6e, type: 3}
+  customCharacters: 
+  fontRenderingMode: 0
+  ascentCalculationMode: 1
+  useLegacyBoundsCalculation: 0
+  shouldRoundAdvanceValue: 1
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

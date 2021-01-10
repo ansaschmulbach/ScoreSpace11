@@ -37,7 +37,7 @@ public class FieldManager : MonoBehaviour
         nightTimer = level.levelLength;
         for (int i = 0; i < level.cowCounts.Length; i++)
         {
-            levelGenerator.Generate(level.cowPrototypes[i], level.cowCounts[i]);
+            levelGenerator.Generate(levelGenerator.cowPrototypes[i], level.cowCounts[i]);
         }
     }
 
