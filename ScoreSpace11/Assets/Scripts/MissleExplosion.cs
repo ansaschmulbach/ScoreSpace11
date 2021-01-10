@@ -6,10 +6,11 @@ public class MissleExplosion : MonoBehaviour
 {
     // Start is called before the first frame update
     private float duration;
+    [SerializeField] MissleDamage md;
     public int dmg;
     void Start()
     {
-        duration = 2;
+        duration = 1;
     }
 
     // Update is called once per frame
@@ -29,5 +30,6 @@ public class MissleExplosion : MonoBehaviour
     {
         Debug.Log("Kaboom!");
         GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().LoseHealth(dmg);
+        Instantiate(md);
     }
 }
