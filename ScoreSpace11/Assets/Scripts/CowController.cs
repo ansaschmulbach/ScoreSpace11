@@ -8,6 +8,7 @@ public class CowController : MonoBehaviour
 
     public int damage;
     public int pointValue;
+    public int milkValue;
     public bool inTeleport;
     private Animator cowAnimator;
     private GameState gameState;
