@@ -50,7 +50,7 @@ public class Missle : MonoBehaviour
             else{
                 if(this.transform.position.y > target.y)
                 {
-                    this.transform.position += new Vector3(0, -speed*Time.deltaTime, 0);
+                    this.transform.position += new Vector3(0, -speed*Time.deltaTime*2, 0);
                 }
                 else
                 {
