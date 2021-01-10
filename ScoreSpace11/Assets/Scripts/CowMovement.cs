@@ -63,8 +63,31 @@ public class CowMovement : MonoBehaviour
 
     void MoveRandom()
     {
-        float x = Random.Range(-2f, 2f);
-        float y = Random.Range(-1f, 1f);
+        float xLow = -2f;
+        float xHigh = 2f;
+        float yLow = -1f;
+        float yHigh = 1f;
+
+        Vector3 pos = transform.position;
+        if(pos.x <= SpawnDestroy.leftBound + 2.5)
+        {
+            xLow = 0f;
+        }
+        if (pos.x >= SpawnDestroy.rightBound - 2.5)
+        {
+            xHigh = 0f;
+        }
+        if (pos.y <= SpawnDestroy.lowerBound + 1.5)
+        {
+            yLow = 0f;
+        }
+        if (pos.y >= SpawnDestroy.lowerBound - 1.5)
+        {
+            yHigh = 0f;
+        }
+
+        float x = Random.Range(xLow, xHigh);
+        float y = Random.Range(yLow, yHigh);
         Vector3 direction = new Vector3(x, y, y);
         if (direction.x < 0)
         {
