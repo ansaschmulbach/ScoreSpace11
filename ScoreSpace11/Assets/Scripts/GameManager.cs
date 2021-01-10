@@ -8,6 +8,7 @@ public class GameManager : MonoBehaviour
 
     public static GameManager instance;
     public GameState gameState;
+    public AudioManager manager;
 
     void Awake()
     {
@@ -30,6 +31,7 @@ public class GameManager : MonoBehaviour
     }
     public void LoadGame()
     {
+        manager.StopBgSound();
         SceneManager.LoadScene("Field");
     }
 

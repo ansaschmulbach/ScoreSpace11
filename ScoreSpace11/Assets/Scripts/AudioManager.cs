@@ -38,6 +38,10 @@ public class AudioManager : MonoBehaviour
     {
         BgSource.Play();
     }
+    public void StopBgSound()
+    {
+        BgSource.Stop();
+    }
     
     public static void PlayAtPoint(AudioClip clip, Vector3 position, float volume = 1f)
     {
