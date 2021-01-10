@@ -804,6 +804,7 @@ MonoBehaviour:
     description: N/A
     cost: 10
   milk: {fileID: 374006478}
+  purchaseButton: {fileID: 1698647407}
   shieldStatus: {fileID: 654961717}
   speedStatus: {fileID: 2083342973}
   teleportSpeedStatus: {fileID: 1342094940}
@@ -4958,6 +4959,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1900687289}
   - component: {fileID: 1900687288}
+  - component: {fileID: 1900687290}
   m_Layer: 0
   m_Name: FieldManager
   m_TagString: Untagged
@@ -4994,6 +4996,19 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1900687290
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1900687287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6b42ebd4e6aa94f1fb7364f6c71901cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBetweenCows: 5
 --- !u!1 &1938715305
 GameObject:
   m_ObjectHideFlags: 0
@@ -5138,13 +5153,13 @@ MonoBehaviour:
   - levelLength: 40
     totalCows: 10
     cowCounts: 0a0000000000000000000000000000000000000000000000
-  - levelLength: 30
+  - levelLength: 20
     totalCows: 20
     cowCounts: 0a0000000a00000000000000000000000000000000000000
-  - levelLength: 40
+  - levelLength: 20
     totalCows: 25
     cowCounts: 0d0000000300000007000000000000000200000000000000
-  - levelLength: 90
+  - levelLength: 45
     totalCows: 32
     cowCounts: 0f0000000000000003000000070000000500000002000000
   - levelLength: 90

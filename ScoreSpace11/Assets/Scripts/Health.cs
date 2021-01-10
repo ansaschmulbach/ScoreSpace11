@@ -27,6 +27,14 @@ public class Health : MonoBehaviour
     {
     }
 
+    public void Multiply(float multiplier)
+    {
+        maxHealth = (int) (maxHealth * multiplier);
+        health = (int) (health * multiplier);
+        healthSlider.maxValue = maxHealth;
+        UpdateHealthBar();
+    }
+
     public void LoseHealth(int amount)
     {
         health = Math.Max(0, health - amount);
