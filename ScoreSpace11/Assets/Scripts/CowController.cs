@@ -12,6 +12,7 @@ public class CowController : MonoBehaviour
     public bool inTeleport;
     private Animator cowAnimator;
     private GameState gameState;
+    [SerializeField] public bool regularCow;
 
     private void Start()
     {

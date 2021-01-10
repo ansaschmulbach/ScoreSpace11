@@ -99,13 +99,14 @@ public class SpaceShipPosession : MonoBehaviour
                 points += cowController.pointValue;
                 milkEarned += cowController.milkValue;
                 damage += cowController.damage;
+                
+                if (cowController.regularCow)
+                {
+                    cowCount++;
+                }
+                
             }
 
-            if (obj.CompareTag("Cow"))
-            {
-                cowCount++;
-            }
-            
             Destroy(obj);
         }
 

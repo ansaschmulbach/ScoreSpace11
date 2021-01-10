@@ -162,6 +162,7 @@ MonoBehaviour:
   pointValue: 20
   milkValue: 3
   inTeleport: 0
+  regularCow: 1
 --- !u!50 &6447656166976110737
 Rigidbody2D:
   serializedVersion: 4
