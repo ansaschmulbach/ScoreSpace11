@@ -17,6 +17,10 @@ public class UpgradeScreen : MonoBehaviour
     [SerializeField] private Upgrade freeze;
     [SerializeField] private Upgrade blank;
     [SerializeField] private TextMeshProUGUI milk;
+<<<<<<< HEAD
+    [SerializeField] private Button purchaseButton;
+=======
+>>>>>>> b87f3e367de4aaab500f1cd9522574d4a9001185
 
     [Header("Current Levels")] 
     [SerializeField]
@@ -31,6 +35,7 @@ public class UpgradeScreen : MonoBehaviour
     private Upgrade selected;
     private FieldManager fieldManager;
     private Canvas canvas;
+    private GameObject player;
 
     [Serializable]
     public struct Upgrade
@@ -46,6 +51,7 @@ public class UpgradeScreen : MonoBehaviour
     {
         gameState = GameManager.instance.gameState;
         fieldManager = FindObjectOfType<FieldManager>();
+        player = GameObject.FindGameObjectWithTag("Player");
         canvas = GetComponent<Canvas>();
         canvas.enabled = false;
     }
@@ -54,6 +60,10 @@ public class UpgradeScreen : MonoBehaviour
     {
         teleportSpeedStatus.text = "X" + gameState.multiplierTeleportSpeed;
         speedStatus.text = "X" + gameState.speedMultiplier;
+<<<<<<< HEAD
+        shieldStatus.text = "X" + gameState.healthMultiplier;
+=======
+>>>>>>> b87f3e367de4aaab500f1cd9522574d4a9001185
         milk.text = gameState.money.ToString();
     }
     
@@ -83,13 +93,26 @@ public class UpgradeScreen : MonoBehaviour
         descriptionIcon.sprite = upgrade.icon;
         descriptionText.SetText(upgrade.description);
         selected = upgrade;
+        if (selected.cost > gameState.money)
+        {
+            purchaseButton.image.color = Color.gray;
+            purchaseButton.interactable = false;
+        }
+        else
+        {
+            purchaseButton.image.color = Color.white;
+            purchaseButton.interactable = true;
+        }
     }
 
     public void Purchase()
     {
-        if (selected.Equals(freeze))
+        if (selected.Equals(shield))
         {
-            gameState.freezeBeam = true;
+            float newHealth = gameState.healthMultiplier * 1.5f;
+            gameState.healthMultiplier = ((int)(newHealth * 100))/ 100f;
+            Health health = player.GetComponent<Health>();
+            health.Multiply(gameState.healthMultiplier);
         } 
         else if (selected.Equals(teleportSpeed))
         {

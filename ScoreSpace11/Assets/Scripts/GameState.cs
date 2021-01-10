@@ -19,6 +19,9 @@ public class GameState
     /** Speed **/
     public float baseSpeed = 5;
     public float speedMultiplier = 1f;
+
+    /** Player Health **/
+    public float healthMultiplier = 1f;
     
     public bool freezeBeam;
 

@@ -13,6 +13,7 @@ public class FieldManager : MonoBehaviour
     private UpgradeScreen upgradeScreen;
     private LevelGenerator levelGenerator;
     private ScoreDisplay scoreDisplay;
+    private LastLevelManager lastLevelManager;
     private bool inNight;
 
     void Start()
@@ -22,6 +23,8 @@ public class FieldManager : MonoBehaviour
         upgradeScreen = FindObjectOfType<UpgradeScreen>();
         levelGenerator = FindObjectOfType<LevelGenerator>();
         scoreDisplay = scoreUI.GetComponent<ScoreDisplay>();
+        lastLevelManager = GetComponent<LastLevelManager>();
+        lastLevelManager.enabled = false;
         StartLevel();
     }
     
@@ -33,12 +36,14 @@ public class FieldManager : MonoBehaviour
         {
             inNight = false;
             LaunchUpdatesScreen();
-        } else if (inNight)
+        } 
+        else if (inNight)
         {
             scoreDisplay.RefreshTime(nightTimer, level.levelLength);
         }
     }
-
+    
+    
     void StartLevel()
     {
         inNight = true;
@@ -50,10 +55,14 @@ public class FieldManager : MonoBehaviour
             levelGenerator.Generate(levelGenerator.cowPrototypes[i], level.cowCounts[i]);
         }
 
-        if (this.levelNum == 4)
+        if (this.levelNum == levelGenerator.levels.Length - 2)
         {
             BarnController barnController = FindObjectOfType<BarnController>();
             barnController.MissileBarnState();
+        } 
+        else if (this.levelNum == levelGenerator.levels.Length - 1)
+        {
+            lastLevelManager.enabled = true;
         }
     }
 
