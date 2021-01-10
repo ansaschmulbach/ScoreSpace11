@@ -15,11 +15,13 @@ public class FieldManager : MonoBehaviour
     private ScoreDisplay scoreDisplay;
     private LastLevelManager lastLevelManager;
     private bool inNight;
+    private bool lastLevel;
 
     void Start()
     {
         levelNum = 0;
         inNight = true;
+        lastLevel = false;
         upgradeScreen = FindObjectOfType<UpgradeScreen>();
         levelGenerator = FindObjectOfType<LevelGenerator>();
         scoreDisplay = scoreUI.GetComponent<ScoreDisplay>();
@@ -32,7 +34,7 @@ public class FieldManager : MonoBehaviour
     {
 
         nightTimer -= Time.deltaTime;   
-        if (inNight && nightTimer <= 0)
+        if (!lastLevel && inNight && nightTimer <= 0)
         {
             inNight = false;
             LaunchUpdatesScreen();
@@ -63,6 +65,7 @@ public class FieldManager : MonoBehaviour
         else if (this.levelNum == levelGenerator.levels.Length - 1)
         {
             lastLevelManager.enabled = true;
+            lastLevel = true;
         }
     }
 

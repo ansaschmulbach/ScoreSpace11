@@ -13,6 +13,13 @@ public class ScoreDisplay : MonoBehaviour
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private GameObject pointer;
 
+    [Header("Upgrades")] 
+    [SerializeField] 
+    private TextMeshProUGUI shieldStat;
+    [SerializeField] private TextMeshProUGUI speedStat;
+    [SerializeField] private TextMeshProUGUI teleSpeedStat;
+    [SerializeField] private TextMeshProUGUI weaponStat;
+
     void Start()
     {
         gameState = GameManager.instance.gameState;
@@ -23,13 +30,19 @@ public class ScoreDisplay : MonoBehaviour
     {
         if (scoreText)
         {
-            scoreText.SetText("Score: " + gameState.score);
+            scoreText.SetText(gameState.score.ToString());
         }
 
         if (milkText)
         {
             milkText.SetText("Milk: " + gameState.money);
         }
+        
+        shieldStat.text = "X" + gameState.healthMultiplier;
+        speedStat.text = "X" + gameState.speedMultiplier;
+        teleSpeedStat.text = "X" + gameState.multiplierTeleportSpeed;
+
+
     }
 
     public void RefreshTime(float timeLeft, float maxTime)
