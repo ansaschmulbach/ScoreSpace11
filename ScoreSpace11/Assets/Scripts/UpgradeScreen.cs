@@ -33,6 +33,7 @@ public class UpgradeScreen : MonoBehaviour
     private FieldManager fieldManager;
     private Canvas canvas;
     private GameObject player;
+    private FadeCanvas fade;
 
     [Serializable]
     public struct Upgrade
@@ -50,7 +51,9 @@ public class UpgradeScreen : MonoBehaviour
         fieldManager = FindObjectOfType<FieldManager>();
         player = GameObject.FindGameObjectWithTag("Player");
         canvas = GetComponent<Canvas>();
+        canvas.GetComponent<CanvasGroup>().alpha = 0;
         canvas.enabled = false;
+        fade = GetComponent<FadeCanvas>();
     }
 
     private void SetStatus()
@@ -124,13 +127,24 @@ public class UpgradeScreen : MonoBehaviour
 
     public void Quit()
     {
-        canvas.enabled = false;
+        if (fade)
+        {
+            fade.FadePanel();   
+        }
+        else
+        {
+            canvas.enabled = false;
+        }
         fieldManager.NextLevel();
     }
 
     public void OpenUpgradeScreen()
     {
         canvas.enabled = true;
+        if (fade)
+        {
+            fade.FadePanel();  
+        }
         SetStatus();
         SeeInfo(blank);
     }

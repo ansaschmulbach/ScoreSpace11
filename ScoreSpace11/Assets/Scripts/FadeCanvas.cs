@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class FadeCanvas : MonoBehaviour
 {
-    private bool isFaded = false;
+    private bool isFaded = true;
     public float timeOfFade = 0.6f;
     // Start is called before the first frame update
     
@@ -30,5 +30,6 @@ public class FadeCanvas : MonoBehaviour
             canv.alpha = Mathf.Lerp(start, end, counter / timeOfFade);
             yield return null;
         }
+        enabled = !isFaded;
     }
 }
