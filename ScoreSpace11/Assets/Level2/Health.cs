@@ -9,6 +9,8 @@ public class Health : MonoBehaviour
     // Start is called before the first frame update
     [SerializeField] private int maxHealth;
     [SerializeField] private Slider healthSlider;
+    [SerializeField] private Image fill;
+    [SerializeField] private Gradient gradient;
     private int health;
 
     void Start()
@@ -17,7 +19,7 @@ public class Health : MonoBehaviour
         if (healthSlider)
         {
             healthSlider.maxValue = maxHealth;
-            healthSlider.value = maxHealth;
+            UpdateHealthBar();
         }
     }
 
@@ -44,6 +46,7 @@ public class Health : MonoBehaviour
     void UpdateHealthBar()
     {
         healthSlider.value = health;
+        fill.color = gradient.Evaluate(healthSlider.normalizedValue);
     }
 
     void Die()

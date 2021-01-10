@@ -5,16 +5,22 @@ using UnityEngine;
 public class FieldManager : MonoBehaviour
 {
 
-    [SerializeField] private float nightLength;
+    //[SerializeField] private float nightLength;
     private float nightTimer;
-    private int level;
+    private int levelNum;
+    private LevelGenerator.Level level;
+    [SerializeField] private Canvas scoreUI;
+    private UpgradeScreen upgradeScreen;
+    private LevelGenerator levelGenerator;
 
     void Start()
     {
-        level = 0;
-        nightTimer = nightLength;
+        levelNum = 0;
+        upgradeScreen = FindObjectOfType<UpgradeScreen>();
+        levelGenerator = FindObjectOfType<LevelGenerator>();
+        StartLevel();
     }
-
+    
     void Update()
     {
         nightTimer -= Time.deltaTime;
@@ -24,13 +30,28 @@ public class FieldManager : MonoBehaviour
         }
     }
 
+    void StartLevel()
+    {
+        level = levelGenerator.levels[levelNum];
+        scoreUI.enabled = true;
+        nightTimer = level.levelLength;
+        for (int i = 0; i < level.cowCounts.Length; i++)
+        {
+            levelGenerator.Generate(level.cowPrototypes[i], level.cowCounts[i]);
+        }
+    }
+
     public void NextLevel()
     {
-        
+        levelNum++;
+        levelGenerator.Clear();
+        StartLevel();
     }
     
     void LaunchUpdatesScreen()
     {
-        
+        scoreUI.enabled = false;
+        upgradeScreen.OpenUpgradeScreen();
     }
+    
 }
