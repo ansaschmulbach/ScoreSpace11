@@ -16,7 +16,7 @@ GameObject:
   - component: {fileID: 5715386369510225745}
   m_Layer: 9
   m_Name: Bomb Cow Still
-  m_TagString: Bomb Cow
+  m_TagString: Cow
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -144,6 +144,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   damage: 2
   pointValue: 0
+  milkValue: 0
   inTeleport: 0
 --- !u!50 &5715386369510225745
 Rigidbody2D:
