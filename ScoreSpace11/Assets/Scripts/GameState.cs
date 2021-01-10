@@ -12,7 +12,7 @@ public class GameState
     
     /** Upgrades **/
     /** Teleportation **/
-    public float timeToTeleport = 3;
+    public float timeToTeleport = 3.8f;
     public float teleportAnimationSpeed = 1f;
     public float multiplierTeleportSpeed = 1f;
 
