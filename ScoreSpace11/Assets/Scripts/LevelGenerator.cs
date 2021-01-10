@@ -31,17 +31,13 @@ public class LevelGenerator : MonoBehaviour
         
     }
 
-    private static float leftBound = -36f;
-    private static float rightBound = 30.3f;
-    private static float upperBound = -1.1f;
-    private static float lowerBound = -5.7f;
 
     public void Generate(GameObject template, int num)
     {
         for(int i = 0; i < num; i++)
         {
-            float randY = Random.Range(lowerBound, upperBound);
-            float randX = Random.Range(leftBound, rightBound);
+            float randY = Random.Range(Globals.lowerBound, Globals.upperBound);
+            float randX = Random.Range(Globals.leftBound, Globals.rightBound);
             Instantiate(template, new Vector3(randX, randY, randY), Quaternion.identity);
         }
     }
