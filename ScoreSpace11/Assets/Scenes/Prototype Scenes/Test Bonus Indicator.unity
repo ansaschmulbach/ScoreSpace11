@@ -3713,6 +3713,10 @@ MonoBehaviour:
   milkText: {fileID: 1519760384}
   scoreText: {fileID: 766555980}
   pointer: {fileID: 1823407365}
+  shieldStat: {fileID: 0}
+  speedStat: {fileID: 0}
+  teleSpeedStat: {fileID: 0}
+  weaponStat: {fileID: 0}
 --- !u!114 &1207472623
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4254,7 +4258,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: -70}
+  m_AnchoredPosition: {x: 108, y: -88}
   m_SizeDelta: {x: 144.7319, y: 28.409897}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1384127329
