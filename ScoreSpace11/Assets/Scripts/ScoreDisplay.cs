@@ -9,6 +9,7 @@ public class ScoreDisplay : MonoBehaviour
     // Start is called before the first frame update
 
     private GameState gameState;
+    [SerializeField] private TextMeshProUGUI milkText;
     [SerializeField] private TextMeshProUGUI scoreText;
     [SerializeField] private GameObject pointer;
 
@@ -22,8 +23,12 @@ public class ScoreDisplay : MonoBehaviour
     {
         if (scoreText)
         {
-            
             scoreText.SetText("Score: " + gameState.score);
+        }
+
+        if (milkText)
+        {
+            milkText.SetText("Milk: " + gameState.money);
         }
     }
 
