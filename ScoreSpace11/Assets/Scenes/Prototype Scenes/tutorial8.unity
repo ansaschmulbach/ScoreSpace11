@@ -254,7 +254,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 322, y: -258}
+  m_AnchoredPosition: {x: 198, y: -247}
   m_SizeDelta: {x: 177, y: 116}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &752042219
@@ -328,7 +328,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -51.5, y: -264.24}
+  m_AnchoredPosition: {x: -94, y: -247}
   m_SizeDelta: {x: 177, y: 116}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &937726673
@@ -619,15 +619,15 @@ RectTransform:
   m_GameObject: {fileID: 1784121005}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.85, y: 0.85, z: 1}
   m_Children: []
   m_Father: {fileID: 1936743789}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 152.1, y: -82}
-  m_SizeDelta: {x: 694.23206, y: 50}
+  m_AnchoredPosition: {x: 70, y: -50}
+  m_SizeDelta: {x: 607.2284, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1784121007
 MonoBehaviour:
@@ -651,7 +651,7 @@ MonoBehaviour:
   m_text: "And A final word of warning. You are traveling to a planet which engages
     in the dispension of a potassium nitrate compound known as gunpowder for recreational
     use. Even while constrained to nocturnal operations, expect to encounter hostility.
-    \nAnd Always remember...\n\n\n\n\n\n\nThings may not always be what they seem."
+    \n\nAnd Always remember...\n\n\n\n\n\n\nThings may not always be what they seem."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: f04ee2706f706424ebdda3223e87db64, type: 2}
   m_sharedMaterial: {fileID: 2668596283114746957, guid: f04ee2706f706424ebdda3223e87db64,
@@ -697,7 +697,7 @@ MonoBehaviour:
   m_enableWordWrapping: 1
   m_wordWrappingRatios: 0.4
   m_overflowMode: 0
-  m_firstOverflowCharacterIndex: 65
+  m_firstOverflowCharacterIndex: 59
   m_linkedTextComponent: {fileID: 0}
   m_isLinkedTextComponent: 0
   m_isTextTruncated: 0
@@ -721,12 +721,12 @@ MonoBehaviour:
   m_margin: {x: 0, y: 0, z: 0, w: 0}
   m_textInfo:
     textComponent: {fileID: 1784121007}
-    characterCount: 313
+    characterCount: 314
     spriteCount: 0
-    spaceCount: 55
+    spaceCount: 56
     wordCount: 49
     linkCount: 0
-    lineCount: 12
+    lineCount: 14
     pageCount: 1
     materialCount: 1
   m_isUsingLegacyAnimationComponent: 0
@@ -789,7 +789,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0.5}
   m_AnchorMax: {x: 0, y: 0.5}
-  m_AnchoredPosition: {x: 255, y: 175}
+  m_AnchoredPosition: {x: 219, y: 157}
   m_SizeDelta: {x: 390.4961, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1936743790
