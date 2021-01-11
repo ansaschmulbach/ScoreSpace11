@@ -3,6 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using TMPro;
 
 public class Health : MonoBehaviour
 {
@@ -12,6 +13,9 @@ public class Health : MonoBehaviour
     [SerializeField] private Image fill;
     [SerializeField] private Gradient gradient;
     private int health;
+    private TextMeshProUGUI healthTxt;
+    private FadeCanvas healthBox;
+    private AudioManager manager;
 
     void Start()
     {
@@ -21,6 +25,9 @@ public class Health : MonoBehaviour
             healthSlider.maxValue = maxHealth;
             UpdateHealthBar();
         }
+        healthBox = (FadeCanvas)GameObject.Find("dmgBox").GetComponent<FadeCanvas>();
+        healthTxt = GameObject.Find("dmgBox").GetComponent<TextMeshProUGUI>();
+        manager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     private void Update()
@@ -39,10 +46,27 @@ public class Health : MonoBehaviour
     {
         health = Math.Max(0, health - amount);
         UpdateHealthBar();
+        
+        if (this.gameObject.CompareTag("Player") && amount > 0)
+        {
+            StartCoroutine(DisplayHealthLoss(amount));
+            manager.StartDmgSound();
+        }
+
         if (health == 0)
         {
             Die();   
         }
+    }
+
+    public IEnumerator DisplayHealthLoss(int pts)
+    {
+        
+        healthBox.FadePanel();
+        healthTxt.text = "- " + pts + " hp";
+        yield return new WaitForSeconds(1);
+        healthBox.FadePanel();
+        yield return null;
     }
 
     public void GainHealth(int amount)

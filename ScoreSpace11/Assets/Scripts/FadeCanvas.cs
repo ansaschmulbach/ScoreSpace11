@@ -16,7 +16,7 @@ public class FadeCanvas : MonoBehaviour
     ***/
     public void FadePanel()
     {
-        var canv = GetComponent<CanvasGroup>();
+        var canv = this.gameObject.GetComponent<CanvasGroup>();
         StartCoroutine(exeFade(canv, canv.alpha, isFaded ? 1 : 0));
         isFaded = !isFaded;
 

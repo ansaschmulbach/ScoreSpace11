@@ -18,6 +18,7 @@ public class SpaceShipPosession : MonoBehaviour
     public Health health;
     public TextMeshProUGUI bonusPtsTxt;
     public FadeCanvas pointsBox;
+    private AudioManager manager;
 
     void Start()
     {
@@ -28,6 +29,7 @@ public class SpaceShipPosession : MonoBehaviour
         health = GetComponentInParent<Health>();
         pointsBox = (FadeCanvas) GameObject.Find("bonusPointBox").GetComponent<FadeCanvas>();
         bonusPtsTxt = GameObject.Find("bonusPointBox").GetComponent<TextMeshProUGUI>();
+        manager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     // Update is called once per frame
@@ -52,6 +54,7 @@ public class SpaceShipPosession : MonoBehaviour
     {
         beaming = true;
         beamingTimer = gameState.timeToTeleport / gameState.multiplierTeleportSpeed;
+        manager.StartBeamSound();
         foreach (GameObject obj in inTeleport)
         {
             if (obj.TryGetComponent(out CowController cowController))
