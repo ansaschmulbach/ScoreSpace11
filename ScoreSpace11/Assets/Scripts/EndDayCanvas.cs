@@ -29,7 +29,7 @@ public class EndDayCanvas : MonoBehaviour
         canvas.enabled = true;
         upgradeScreen = FindObjectOfType<UpgradeScreen>();
         fade = GetComponent<FadeCanvas>();
-        headline.rectTransform.anchoredPosition = new Vector3(0,-500,0);
+        headline.rectTransform.localPosition = new Vector3(0,-500,0);
         //fade.FadePanel();
         gameState = GameManager.instance.gameState;
         headline.enabled = true;
@@ -43,9 +43,9 @@ public class EndDayCanvas : MonoBehaviour
     {
         if(timer > 0 && transitioning)
         {
-            if(headline.rectTransform.anchoredPosition.y < 0)
+            if(headline.rectTransform.localPosition.y < 0)
             {
-                headline.rectTransform.anchoredPosition += (Vector2)velocity;
+                headline.rectTransform.localPosition += velocity;
                 velocity = new Vector3(0,velocity.y - Time.deltaTime*18f, 0);
                 if(velocity.y < 0)
                 {
@@ -71,7 +71,7 @@ public class EndDayCanvas : MonoBehaviour
     public void reset()
     {
         transitioning = false;
-        headline.rectTransform.anchoredPosition = new Vector3(0,-500,0);
+        headline.rectTransform.localPosition = new Vector3(0,-500,0);
         velocity = new Vector3(0,16f,0);
         index++;
         headline.sprite = newpapers[index];
@@ -79,6 +79,7 @@ public class EndDayCanvas : MonoBehaviour
 
     public void showResults()
     {
+        Debug.Log("hi");
         fade.FadePanel();
         cowR.text = "Cows rescued: " + gameState.cow;
         milkR.text = "Score: " + gameState.score;
