@@ -1229,6 +1229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0113f0020c8f5e428e8ea32ac43af70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFaded: 1
   timeOfFade: 0.6
 --- !u!225 &215239158
 CanvasGroup:
@@ -3345,6 +3346,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0113f0020c8f5e428e8ea32ac43af70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFaded: 1
   timeOfFade: 0.6
 --- !u!114 &772000507
 MonoBehaviour:
@@ -4436,6 +4438,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0113f0020c8f5e428e8ea32ac43af70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFaded: 1
   timeOfFade: 0.6
 --- !u!225 &1211511603
 CanvasGroup:
@@ -4804,6 +4807,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d0113f0020c8f5e428e8ea32ac43af70, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  isFaded: 1
   timeOfFade: 6
 --- !u!114 &1301717776
 MonoBehaviour:
@@ -4817,11 +4821,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7690ee87e932f43a19110b33ac196333, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  canvas: {fileID: 0}
   text: {fileID: 669766054}
   cowR: {fileID: 486697729}
   milkR: {fileID: 1548568540}
   moneyR: {fileID: 88520631}
   headline: {fileID: 1819456489}
+  newpapers:
+  - {fileID: 21300000, guid: ac603869ded6e4cffb49c379626031c0, type: 3}
+  - {fileID: 21300000, guid: 213671981411d4418a4fefd0ab853370, type: 3}
+  - {fileID: 21300000, guid: f9f74cfc557af4e9b994a7fa66eb3291, type: 3}
 --- !u!225 &1301717777
 CanvasGroup:
   m_ObjectHideFlags: 0
