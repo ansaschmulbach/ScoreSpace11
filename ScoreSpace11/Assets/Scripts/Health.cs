@@ -13,19 +13,19 @@ public class Health : MonoBehaviour
     [SerializeField] private Image fill;
     [SerializeField] private Gradient gradient;
     private int health;
-    public TextMeshProUGUI healthTxt;
-    public FadeCanvas healthBox;
+    private TextMeshProUGUI healthTxt;
+    private FadeCanvas healthBox;
 
     void Start()
     {
-        healthBox = (FadeCanvas) GameObject.Find("dmgBox").GetComponent<FadeCanvas>();
-        healthTxt = GameObject.Find("dmgBox").GetComponent<TextMeshProUGUI>();
         health = maxHealth;
         if (healthSlider)
         {
             healthSlider.maxValue = maxHealth;
             UpdateHealthBar();
         }
+        healthBox = (FadeCanvas)GameObject.Find("dmgBox").GetComponent<FadeCanvas>();
+        healthTxt = GameObject.Find("dmgBox").GetComponent<TextMeshProUGUI>();
     }
 
     private void Update()
@@ -44,6 +44,7 @@ public class Health : MonoBehaviour
     {
         health = Math.Max(0, health - amount);
         UpdateHealthBar();
+        
         if (this.gameObject.CompareTag("Player") && amount > 0)
         {
             StartCoroutine(DisplayHealthLoss(amount));
