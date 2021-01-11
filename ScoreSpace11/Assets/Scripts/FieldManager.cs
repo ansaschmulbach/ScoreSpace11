@@ -40,8 +40,7 @@ public class FieldManager : MonoBehaviour
     
     void Update()
     {
-
-        nightTimer -= Time.deltaTime;   
+        
         if (!lastLevel && inNight && (nightTimer <= 0 || cowsThisLevel >= level.totalCows))
         {
             inNight = false;
@@ -49,6 +48,7 @@ public class FieldManager : MonoBehaviour
         } 
         else if (!lastLevel && inNight)
         {
+            nightTimer -= Time.deltaTime;  
             scoreDisplay.RefreshTime(nightTimer, level.levelLength);
         }
     }

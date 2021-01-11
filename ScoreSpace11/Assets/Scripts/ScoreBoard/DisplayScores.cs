@@ -7,10 +7,12 @@ using TMPro;
 public class DisplayScores : MonoBehaviour
 {
     public TextMeshProUGUI[] highscoreText;
+    public TextMeshProUGUI personal_best;
     ScoreBoard highscoreManager;
     // Start is called before the first frame update
     void Start()
     {
+        personal_best.text = "Personal Best - " + GameManager.instance.gameState.personal_best.ToString();
         for (int i = 0; i < highscoreText.Length; i++)
         {
             highscoreText[i].text = i + 1 + ". Fetching...";

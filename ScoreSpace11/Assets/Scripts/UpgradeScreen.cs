@@ -105,18 +105,19 @@ public class UpgradeScreen : MonoBehaviour
     void CheckDisable()
     {
         
-        if (selected.cost > gameState.money)
-        {
-            purchaseButton.image.color = Color.gray;
-            purchaseButton.interactable = false;
-            descriptionText.text = "Not enough milk!";
-        } 
-        else if (GetCurrMult() > selected.maxMult)
+        
+        if (GetCurrMult() > selected.maxMult)
         {
             purchaseButton.image.color = Color.gray;
             purchaseButton.interactable = false;
             descriptionText.text = "Max Multiplier reached!";
         }
+        else if (selected.cost > gameState.money)
+        {
+            purchaseButton.image.color = Color.gray;
+            purchaseButton.interactable = false;
+            descriptionText.text = "Not enough milk!";
+        } 
         else
         {
             purchaseButton.image.color = Color.white;

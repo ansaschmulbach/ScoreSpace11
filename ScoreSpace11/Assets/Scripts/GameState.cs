@@ -10,6 +10,7 @@ public class GameState
     public int score = 0;
     public int money = 0;
     public int cow = 0;
+    public int personal_best = 0;
 
     /** Upgrades **/
     /** Teleportation **/
@@ -25,5 +26,19 @@ public class GameState
     public float healthMultiplier = 1f;
     
     public bool freezeBeam;
+
+    public void reset()
+    {
+        score = 0;
+        money = 0;
+        int cow = 0;
+        float timeToTeleport = 3.8f;
+        float teleportAnimationSpeed = 1f;
+        float multiplierTeleportSpeed = 1f;
+        float baseSpeed = 3.5f;
+        float speedMultiplier = 1f;
+        float healthMultiplier = 1f;
+        bool freezeBeam = false;
+    }
 
 }
