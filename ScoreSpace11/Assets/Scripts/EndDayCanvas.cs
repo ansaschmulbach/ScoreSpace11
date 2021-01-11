@@ -28,11 +28,11 @@ public class EndDayCanvas : MonoBehaviour
         canvas.enabled = true;
         upgradeScreen = FindObjectOfType<UpgradeScreen>();
         fade = GetComponent<FadeCanvas>();
-        headline.transform.position = new Vector3(310,-190,0);
+        headline.rectTransform.anchoredPosition = new Vector3(0,-400,0);
         //fade.FadePanel();
         gameState = GameManager.instance.gameState;
         headline.enabled = true;
-        velocity = new Vector3(0,15f,0);
+        velocity = new Vector3(0,16f,0);
         transitioning = false;
         index = -1;
     }
@@ -40,13 +40,13 @@ public class EndDayCanvas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(headline.transform.position);
+        Debug.Log(headline.rectTransform.anchoredPosition);
         if(transitioning)
         {
-            if(headline.transform.position.y < 300)
+            if(headline.rectTransform.anchoredPosition.y < 0)
             {
-                headline.transform.position += velocity;
-                velocity = new Vector3(0,velocity.y - Time.deltaTime*16f, 0);
+                headline.rectTransform.anchoredPosition += (Vector2)velocity;
+                velocity = new Vector3(0,velocity.y - Time.deltaTime*18f, 0);
                 if(velocity.y < 0)
                 {
                     velocity.y = 0.05f;
@@ -67,8 +67,9 @@ public class EndDayCanvas : MonoBehaviour
     public void reset()
     {
         transitioning = false;
-        headline.transform.position = new Vector3(310,-170,0);
-        velocity = new Vector3(0,15f,0);
+        headline.rectTransform.anchoredPosition = new Vector3(0,-400,0);
+        Debug.Log(headline.rectTransform.anchoredPosition);
+        velocity = new Vector3(0,16f,0);
         index++;
         headline.sprite = newpapers[index];
     }
