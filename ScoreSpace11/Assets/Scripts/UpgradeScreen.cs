@@ -42,6 +42,12 @@ public class UpgradeScreen : MonoBehaviour
         public Sprite icon;
         public string description;
         public int cost;
+        public float maxMult;
+
+        public override bool Equals(object obj)
+        {
+            return name.Equals(((Upgrade) obj).name);
+        }
     }
     
     private GameState gameState;
@@ -90,10 +96,23 @@ public class UpgradeScreen : MonoBehaviour
         descriptionIcon.sprite = upgrade.icon;
         descriptionText.SetText(upgrade.description);
         selected = upgrade;
+        CheckDisable();
+    }
+
+    void CheckDisable()
+    {
+        
         if (selected.cost > gameState.money)
         {
             purchaseButton.image.color = Color.gray;
             purchaseButton.interactable = false;
+            descriptionText.text = "Not enough milk!";
+        } 
+        else if (GetCurrMult() > selected.maxMult)
+        {
+            purchaseButton.image.color = Color.gray;
+            purchaseButton.interactable = false;
+            descriptionText.text = "Max Multiplier reached!";
         }
         else
         {
@@ -104,25 +123,53 @@ public class UpgradeScreen : MonoBehaviour
 
     public void Purchase()
     {
+            
         if (selected.Equals(shield))
         {
-            float newHealth = gameState.healthMultiplier * 1.5f;
-            gameState.healthMultiplier = ((int)(newHealth * 100))/ 100f;
+            gameState.healthMultiplier =
+                ApplyMultiplier(gameState.healthMultiplier);
             Health health = player.GetComponent<Health>();
             health.Multiply(gameState.healthMultiplier);
         } 
         else if (selected.Equals(teleportSpeed))
         {
-            float newSpeed = gameState.multiplierTeleportSpeed * 1.5f;
-            gameState.multiplierTeleportSpeed = ((int)(newSpeed * 100))/ 100f;
+            gameState.multiplierTeleportSpeed = 
+                ApplyMultiplier(gameState.multiplierTeleportSpeed);
         } 
         else if (selected.Equals(speed))
         {
-            float newSpeed = gameState.speedMultiplier * 1.5f;
-            gameState.speedMultiplier = ((int)(newSpeed * 100))/ 100f;
+            gameState.speedMultiplier = 
+                ApplyMultiplier(gameState.speedMultiplier);
         }
+
         gameState.money -= selected.cost;
         SetStatus();
+        CheckDisable();
+    }
+
+    float GetCurrMult()
+    {
+        if (selected.Equals(shield))
+        {
+            return gameState.healthMultiplier;
+        } 
+        else if (selected.Equals(teleportSpeed))
+        {
+            return gameState.multiplierTeleportSpeed;
+        } 
+        else if (selected.Equals(speed))
+        {
+            return gameState.speedMultiplier;
+        }
+
+        return 0.0f;
+        
+    }
+
+    float ApplyMultiplier(float oldMult)
+    {
+        float newMult = oldMult * 1.5f;
+        return ((int) (newMult * 100)) / 100f;
     }
 
     public void Quit()
@@ -145,6 +192,7 @@ public class UpgradeScreen : MonoBehaviour
         {
             fade.FadePanel();  
         }
+        
         SetStatus();
         SeeInfo(blank);
     }
