@@ -28,7 +28,7 @@ public class EndDayCanvas : MonoBehaviour
         canvas.enabled = true;
         upgradeScreen = FindObjectOfType<UpgradeScreen>();
         fade = GetComponent<FadeCanvas>();
-        headline.transform.position = new Vector3(310,-170,0);
+        headline.transform.position = new Vector3(310,-190,0);
         //fade.FadePanel();
         gameState = GameManager.instance.gameState;
         headline.enabled = true;
@@ -40,6 +40,7 @@ public class EndDayCanvas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        Debug.Log(headline.transform.position);
         if(transitioning)
         {
             if(headline.transform.position.y < 300)
