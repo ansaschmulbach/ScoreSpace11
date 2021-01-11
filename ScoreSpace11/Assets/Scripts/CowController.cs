@@ -26,7 +26,6 @@ public class CowController : MonoBehaviour
         cowAnimator.SetBool("teleporting", true);
         cowAnimator.speed = gameState.teleportAnimationSpeed * 
                             gameState.multiplierTeleportSpeed;
-        Debug.Log(cowAnimator.speed);
     }
 
     public void StopTeleport()

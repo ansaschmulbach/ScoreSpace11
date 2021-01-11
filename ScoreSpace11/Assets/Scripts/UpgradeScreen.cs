@@ -32,6 +32,7 @@ public class UpgradeScreen : MonoBehaviour
     private Upgrade selected;
     private FieldManager fieldManager;
     private Canvas canvas;
+    private Canvas darkness;
     private GameObject player;
     private FadeCanvas fade;
 
@@ -59,6 +60,8 @@ public class UpgradeScreen : MonoBehaviour
         canvas = GetComponent<Canvas>();
         canvas.GetComponent<CanvasGroup>().alpha = 0;
         canvas.enabled = false;
+        darkness = GameObject.FindGameObjectWithTag("darkness").GetComponent<Canvas>();
+        darkness.enabled = false;
         fade = GetComponent<FadeCanvas>();
     }
 
@@ -174,6 +177,7 @@ public class UpgradeScreen : MonoBehaviour
 
     public void Quit()
     {
+        darkness.enabled = false;
         if (fade)
         {
             fade.FadePanel();   
@@ -187,6 +191,7 @@ public class UpgradeScreen : MonoBehaviour
 
     public void OpenUpgradeScreen()
     {
+        darkness.enabled = true;
         canvas.enabled = true;
         if (fade)
         {

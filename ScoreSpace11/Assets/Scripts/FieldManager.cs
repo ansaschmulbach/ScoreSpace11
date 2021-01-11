@@ -8,9 +8,11 @@ public class FieldManager : MonoBehaviour
     //[SerializeField] private float nightLength;
     [SerializeField] private float nightTimer;
     [SerializeField] private int levelNum;
-    private LevelGenerator.Level level;
     [SerializeField] private Canvas scoreUI;
-    private UpgradeScreen upgradeScreen;
+    
+    public UpgradeScreen upgradeScreen;
+    private LevelGenerator.Level level;
+    private EndDayCanvas endDay;
     private LevelGenerator levelGenerator;
     private ScoreDisplay scoreDisplay;
     private LastLevelManager lastLevelManager;
@@ -24,6 +26,7 @@ public class FieldManager : MonoBehaviour
         inNight = true;
         lastLevel = false;
         upgradeScreen = FindObjectOfType<UpgradeScreen>();
+        endDay = FindObjectOfType<EndDayCanvas>();
         levelGenerator = FindObjectOfType<LevelGenerator>();
         scoreDisplay = scoreUI.GetComponent<ScoreDisplay>();
         lastLevelManager = GetComponent<LastLevelManager>();
@@ -36,12 +39,13 @@ public class FieldManager : MonoBehaviour
     {
 
         nightTimer -= Time.deltaTime;   
-        if (!lastLevel && inNight && nightTimer <= 0)
+        if (!lastLevel && inNight && (nightTimer <= 0 
+                                      || GameManager.instance.gameState.cow >= level.totalCows))
         {
             inNight = false;
             LaunchUpdatesScreen();
         } 
-        else if (inNight)
+        else if (!lastLevel && inNight)
         {
             scoreDisplay.RefreshTime(nightTimer, level.levelLength);
         }
@@ -70,22 +74,30 @@ public class FieldManager : MonoBehaviour
         {
             lastLevelManager.enabled = true;
             lastLevel = true;
+            scoreDisplay.EnableLastLevel();
         }
     }
 
     public void NextLevel()
     {
+        if (lastLevel)
+        {
+            scoreDisplay.Open();
+            return;
+        }
         levelNum++;
         StartLevel();
     }
     
-    void LaunchUpdatesScreen()
+    void LaunchUpdatesScreen() //Now it shows the resulsts screen
     {
         levelGenerator.Clear();
         player.GetComponent<SpaceShipMovement>().enabled = false;
         player.GetComponentInChildren<SpaceShipPosession>().enabled = false;
         scoreUI.enabled = false;
-        upgradeScreen.OpenUpgradeScreen();
+        endDay.canvas.enabled = true;
+        endDay.reset();
+        endDay.showResults();
     }
     
 }

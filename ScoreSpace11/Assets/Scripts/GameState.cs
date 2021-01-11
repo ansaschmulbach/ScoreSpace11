@@ -9,6 +9,7 @@ public class GameState
     
     public int score = 0;
     public int money = 0;
+    public int cow = 0;
     
     /** Upgrades **/
     /** Teleportation **/
