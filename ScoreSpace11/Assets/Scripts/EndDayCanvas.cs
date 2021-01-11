@@ -29,7 +29,7 @@ public class EndDayCanvas : MonoBehaviour
         canvas.enabled = true;
         upgradeScreen = FindObjectOfType<UpgradeScreen>();
         fade = GetComponent<FadeCanvas>();
-        headline.rectTransform.anchoredPosition = new Vector3(0,-400,0);
+        headline.rectTransform.anchoredPosition = new Vector3(0,-500,0);
         //fade.FadePanel();
         gameState = GameManager.instance.gameState;
         headline.enabled = true;
@@ -71,7 +71,7 @@ public class EndDayCanvas : MonoBehaviour
     public void reset()
     {
         transitioning = false;
-        headline.rectTransform.anchoredPosition = new Vector3(0,-400,0);
+        headline.rectTransform.anchoredPosition = new Vector3(0,-500,0);
         velocity = new Vector3(0,16f,0);
         index++;
         headline.sprite = newpapers[index];
