@@ -3068,9 +3068,9 @@ MonoBehaviour:
     cost: 30
     maxMult: 5
   blank:
-    name: ' '
+    name: Upgrade Ship
     icon: {fileID: 21300000, guid: 2201d16eae2a345458fa67e22df76246, type: 3}
-    description: 
+    description: Choose an upgrade from the left, and click the <TRADE> button below.
     cost: 0
     maxMult: 0
   milk: {fileID: 99774430}
