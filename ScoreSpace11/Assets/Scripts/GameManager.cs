@@ -9,6 +9,7 @@ public class GameManager : MonoBehaviour
     public static GameManager instance;
     public GameState gameState;
     private AudioManager manager;
+    //public int personal_best = 0;
 
     void Awake()
     {
@@ -53,7 +54,7 @@ public class GameManager : MonoBehaviour
     }
     public void LoadToMain()
     {
-        instance.gameState = new GameState();
+        instance.gameState.reset();
         SceneManager.LoadScene("MainMenu");
     }
     public void LoadToCredits()
