@@ -42,7 +42,7 @@ public class EndDayCanvas : MonoBehaviour
     void Update()
     {
         Debug.Log(headline.rectTransform.anchoredPosition);
-        if(timer > 0)
+        if(timer > 0 && transitioning)
         {
             if(headline.rectTransform.anchoredPosition.y < 0)
             {
@@ -57,12 +57,15 @@ public class EndDayCanvas : MonoBehaviour
         }
         else
         {
-            //fade.FadePanel();
-            fade.isFaded = true;
-            canvas.GetComponent<CanvasGroup>().alpha = 0;
-            canvas.enabled = false;
-            upgradeScreen.OpenUpgradeScreen();
-            transitioning = false;
+            if(transitioning)
+            {
+                //fade.FadePanel();
+                fade.isFaded = true;
+                canvas.GetComponent<CanvasGroup>().alpha = 0;
+                canvas.enabled = false;
+                upgradeScreen.OpenUpgradeScreen();
+                transitioning = false;
+            }
         }
     }
 
