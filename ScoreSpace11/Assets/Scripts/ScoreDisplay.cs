@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using TMPro;
+using UnityEditorInternal;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -11,6 +12,8 @@ public class ScoreDisplay : MonoBehaviour
     private GameState gameState;
     [SerializeField] private TextMeshProUGUI milkText;
     [SerializeField] private TextMeshProUGUI scoreText;
+    [SerializeField] private Image dial;
+    [SerializeField] private Button lastLevButton;
     [SerializeField] private GameObject pointer;
 
     [Header("Upgrades")] 
@@ -20,10 +23,16 @@ public class ScoreDisplay : MonoBehaviour
     [SerializeField] private TextMeshProUGUI teleSpeedStat;
     [SerializeField] private TextMeshProUGUI weaponStat;
 
+
+    private bool lastLevel;
+    private FieldManager fm;
     
     void Start()
     {
         gameState = GameManager.instance.gameState;
+        fm = FindObjectOfType<FieldManager>();
+        lastLevButton.enabled = false;
+        lastLevButton.image.enabled = false;
     }
 
     // Update is called once per frame
@@ -48,9 +57,28 @@ public class ScoreDisplay : MonoBehaviour
 
     public void RefreshTime(float timeLeft, float maxTime)
     {
+        if (lastLevel)
+        {
+            return;
+        }
         float ratioTimeElapsed = timeLeft / maxTime;
         float angle = ratioTimeElapsed * 180 - 90;
         pointer.transform.eulerAngles = new Vector3(0, 0, angle);
+    }
+
+    public void EnableLastLevel()
+    {
+        lastLevel = true;
+        dial.enabled = false;
+        pointer.GetComponentInChildren<Image>().enabled = false;
+        lastLevButton.enabled = true;
+        lastLevButton.image.enabled = true;
+    }
+
+    public void OpenUpgrade()
+    {
+        this.GetComponent<Canvas>().enabled = false;
+        fm.upgradeScreen.OpenUpgradeScreen();
     }
     
     
