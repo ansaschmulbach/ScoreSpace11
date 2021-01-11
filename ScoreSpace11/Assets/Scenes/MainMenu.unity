@@ -466,6 +466,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   soundAffectMenu: {fileID: 8300000, guid: 17e5c8c81edf9a544b09ce7dcf98d863, type: 3}
   soundAffectGame: {fileID: 8300000, guid: 25c3661e365cf4542baaa7c381e5bf77, type: 3}
+  soundAffectBeam: {fileID: 8300000, guid: 7fda3d7bfa0b9495391cc7015fe72698, type: 3}
+  soundAffectDmg: {fileID: 8300000, guid: f2fe43ecdc2734cc7b714b312599e10f, type: 3}
 --- !u!4 &414983777
 Transform:
   m_ObjectHideFlags: 0

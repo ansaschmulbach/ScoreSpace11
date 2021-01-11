@@ -14,6 +14,7 @@ public class FieldManager : MonoBehaviour
     private LevelGenerator levelGenerator;
     private ScoreDisplay scoreDisplay;
     private LastLevelManager lastLevelManager;
+    private GameObject player;
     private bool inNight;
     private bool lastLevel;
 
@@ -26,6 +27,7 @@ public class FieldManager : MonoBehaviour
         levelGenerator = FindObjectOfType<LevelGenerator>();
         scoreDisplay = scoreUI.GetComponent<ScoreDisplay>();
         lastLevelManager = GetComponent<LastLevelManager>();
+        player = GameObject.FindGameObjectWithTag("Player");
         lastLevelManager.enabled = false;
         StartLevel();
     }
@@ -48,6 +50,8 @@ public class FieldManager : MonoBehaviour
     
     void StartLevel()
     {
+        player.GetComponent<SpaceShipMovement>().enabled = true;
+        player.GetComponentInChildren<SpaceShipPosession>().enabled = true;
         inNight = true;
         level = levelGenerator.levels[levelNum];
         scoreUI.enabled = true;
@@ -72,12 +76,14 @@ public class FieldManager : MonoBehaviour
     public void NextLevel()
     {
         levelNum++;
-        levelGenerator.Clear();
         StartLevel();
     }
     
     void LaunchUpdatesScreen()
     {
+        levelGenerator.Clear();
+        player.GetComponent<SpaceShipMovement>().enabled = false;
+        player.GetComponentInChildren<SpaceShipPosession>().enabled = false;
         scoreUI.enabled = false;
         upgradeScreen.OpenUpgradeScreen();
     }
