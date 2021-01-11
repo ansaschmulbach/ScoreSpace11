@@ -19,10 +19,12 @@ public class SpaceShipPosession : MonoBehaviour
     public TextMeshProUGUI bonusPtsTxt;
     public FadeCanvas pointsBox;
     private AudioManager manager;
+    public bool previousSpace;
 
     void Start()
     {
         inTeleport = new List<GameObject>();
+        previousSpace = false;
         beaming = false;
         gameState = GameManager.instance.gameState;
         beamingTimer = gameState.timeToTeleport * gameState.multiplierTeleportSpeed;
@@ -35,7 +37,12 @@ public class SpaceShipPosession : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (beaming && beamingTimer <= 0)
+        if (Input.GetKeyUp(KeyCode.Space) && previousSpace)
+        {
+            previousSpace = false;
+            CancelBeam();
+        }
+        else if (beaming && beamingTimer <= 0)
         {
             Beam();
             beaming = false;
@@ -44,10 +51,27 @@ public class SpaceShipPosession : MonoBehaviour
         {
             beamingTimer -= Time.deltaTime;
         } 
-        else if (Input.GetKeyDown(KeyCode.Space))
+        else if (Input.GetKeyDown(KeyCode.Space) && !previousSpace)
         {
+            previousSpace = true;
             StartBeam();
         }
+    }
+    void CancelBeam()
+    {
+        beaming = false;
+        for (int i = inTeleport.Count - 1; i >= 0; i--)
+        {
+            GameObject obj = inTeleport[i];
+
+            if (obj.TryGetComponent(out CowController cowController))
+            {
+                cowController.StopTeleport();
+                //inTeleport.Remove(obj);
+
+            }
+        }
+
     }
 
     void StartBeam()
@@ -102,7 +126,7 @@ public class SpaceShipPosession : MonoBehaviour
         {
             GameObject obj = inTeleport[i];
 
-            if (obj.TryGetComponent(out CowController cowController))
+            if (obj.TryGetComponent(out CowController cowController) && beaming)
             {
                 cowController.Teleport();
                 points += cowController.pointValue;
