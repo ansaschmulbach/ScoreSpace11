@@ -34,4 +34,8 @@ public class MainMenuScript : MonoBehaviour
     {
         GameManager.instance.LoadTutorial();
     }
+    public void callCreditsTransition()
+    {
+        GameManager.instance.LoadToCredits();
+    }
 }
