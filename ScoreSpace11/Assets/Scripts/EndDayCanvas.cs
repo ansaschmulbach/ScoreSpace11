@@ -28,11 +28,11 @@ public class EndDayCanvas : MonoBehaviour
         canvas.enabled = true;
         upgradeScreen = FindObjectOfType<UpgradeScreen>();
         fade = GetComponent<FadeCanvas>();
-        headline.transform.position = new Vector3(500,-320,0);
+        headline.transform.position = new Vector3(500,290,0);
         //fade.FadePanel();
         gameState = GameManager.instance.gameState;
         headline.enabled = true;
-        velocity = new Vector3(0,2,0);
+        velocity = new Vector3(0,0.5f,0);
         transitioning = false;
         index = -1;
     }
