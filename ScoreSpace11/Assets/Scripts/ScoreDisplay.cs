@@ -80,6 +80,11 @@ public class ScoreDisplay : MonoBehaviour
         this.GetComponent<Canvas>().enabled = false;
         fm.upgradeScreen.OpenUpgradeScreen();
     }
+
+    public void Open()
+    {
+        this.GetComponent<Canvas>().enabled = true;
+    }
     
     
 }
