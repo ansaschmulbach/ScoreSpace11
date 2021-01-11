@@ -4111,9 +4111,10 @@ MonoBehaviour:
   moneyR: {fileID: 238346418}
   headline: {fileID: 31825348}
   newpapers:
-  - {fileID: 21300000, guid: ac603869ded6e4cffb49c379626031c0, type: 3}
-  - {fileID: 21300000, guid: 213671981411d4418a4fefd0ab853370, type: 3}
-  - {fileID: 21300000, guid: f9f74cfc557af4e9b994a7fa66eb3291, type: 3}
+  - {fileID: 21300000, guid: 68c0c2ccfc44343828618e2f4cd2b798, type: 3}
+  - {fileID: 21300000, guid: 003ad6be300754318a4f7afba25746b7, type: 3}
+  - {fileID: 21300000, guid: 71498298c50e54e96b6380e095160f58, type: 3}
+  - {fileID: 21300000, guid: d74574d7086704660b8d3b3dab3da9fc, type: 3}
 --- !u!225 &977487791
 CanvasGroup:
   m_ObjectHideFlags: 0

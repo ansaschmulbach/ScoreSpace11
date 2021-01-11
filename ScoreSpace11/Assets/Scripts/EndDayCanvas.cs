@@ -32,7 +32,7 @@ public class EndDayCanvas : MonoBehaviour
         //fade.FadePanel();
         gameState = GameManager.instance.gameState;
         headline.enabled = true;
-        velocity = new Vector3(0,2,0);
+        velocity = new Vector3(0,0.5f,0);
         transitioning = false;
         index = -1;
     }
