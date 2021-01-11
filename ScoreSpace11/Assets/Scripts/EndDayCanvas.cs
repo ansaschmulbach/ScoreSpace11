@@ -28,11 +28,11 @@ public class EndDayCanvas : MonoBehaviour
         canvas.enabled = true;
         upgradeScreen = FindObjectOfType<UpgradeScreen>();
         fade = GetComponent<FadeCanvas>();
-        headline.transform.position = new Vector3(310,100,0);
+        headline.transform.position = new Vector3(310,-170,0);
         //fade.FadePanel();
         gameState = GameManager.instance.gameState;
         headline.enabled = true;
-        velocity = new Vector3(0,6f,0);
+        velocity = new Vector3(0,15f,0);
         transitioning = false;
         index = -1;
     }
@@ -45,7 +45,7 @@ public class EndDayCanvas : MonoBehaviour
             if(headline.transform.position.y < 300)
             {
                 headline.transform.position += velocity;
-                velocity = new Vector3(0,velocity.y - Time.deltaTime*7f, 0);
+                velocity = new Vector3(0,velocity.y - Time.deltaTime*16f, 0);
                 if(velocity.y < 0)
                 {
                     velocity.y = 0.05f;
@@ -66,7 +66,8 @@ public class EndDayCanvas : MonoBehaviour
     public void reset()
     {
         transitioning = false;
-        headline.transform.position = new Vector3(310,100,0);
+        headline.transform.position = new Vector3(310,-170,0);
+        velocity = new Vector3(0,15f,0);
         index++;
         headline.sprite = newpapers[index];
     }
