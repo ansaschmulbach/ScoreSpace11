@@ -1216,8 +1216,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.606544, y: 147.76045}
-  m_SizeDelta: {x: 160, y: 25}
+  m_AnchoredPosition: {x: -31.59, y: 147.76045}
+  m_SizeDelta: {x: 139.22906, y: 25}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &304224691
 CanvasRenderer:
@@ -3039,14 +3039,14 @@ MonoBehaviour:
   descriptionText: {fileID: 1536184093}
   descriptionIcon: {fileID: 1681791134}
   shield:
-    name: Shield
+    name: Shield (30 Milk)
     icon: {fileID: 21300000, guid: 5e973d76a2d4a44c6a28877ed0f9bd6d, type: 3}
     description: Being blown up getting ya down? With this totally legitimate armor
       plating, critical damage will be a thing of the past... and the now-more-distant-future!
     cost: 30
     maxMult: 5
   speed:
-    name: Speed
+    name: Speed (30 Milk)
     icon: {fileID: 21300000, guid: 2b11ee4310c54467fb663471360b3d25, type: 3}
     description: Do you ever wonder what would happen if you removed the limiter
       to your ion thrusters? Us too! You will be able to save more cows this way...
@@ -3054,7 +3054,7 @@ MonoBehaviour:
     cost: 30
     maxMult: 5
   teleportSpeed:
-    name: Teleport Speed
+    name: Teleport Speed (30 Milk)
     icon: {fileID: 21300000, guid: 7fb98f62b7081458688ad52522f1bf29, type: 3}
     description: Tele, better, faster, stronger. Upgrade your CattlePort to a faster
       model. Dont worry, the extra power can easily be routed from life support.
@@ -5900,8 +5900,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -10.606544, y: 6.3397064}
-  m_SizeDelta: {x: 160, y: 80}
+  m_AnchoredPosition: {x: 20.4, y: -54.4}
+  m_SizeDelta: {x: 190.68994, y: 140.12187}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1536184092
 CanvasRenderer:
@@ -6448,7 +6448,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 108, y: 151}
+  m_AnchoredPosition: {x: 166, y: 143}
   m_SizeDelta: {x: 150, y: 150}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1681791132
