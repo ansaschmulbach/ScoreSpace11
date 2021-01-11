@@ -12,6 +12,7 @@ public class EndDayCanvas : MonoBehaviour
     private GameState gameState;
     private Vector3 velocity;
     private bool transitioning;
+    private float timer;
     private int index;
     private UpgradeScreen upgradeScreen;
     [SerializeField] TextMeshProUGUI text; //Night's Over!
@@ -41,7 +42,7 @@ public class EndDayCanvas : MonoBehaviour
     void Update()
     {
         Debug.Log(headline.rectTransform.anchoredPosition);
-        if(transitioning)
+        if(timer > 0)
         {
             if(headline.rectTransform.anchoredPosition.y < 0)
             {
@@ -52,15 +53,16 @@ public class EndDayCanvas : MonoBehaviour
                     velocity.y = 0.05f;
                 }
             }
-            else
-            {
-                //fade.FadePanel();
-                fade.isFaded = true;
-                canvas.GetComponent<CanvasGroup>().alpha = 0;
-                canvas.enabled = false;
-                upgradeScreen.OpenUpgradeScreen();
-                transitioning = false;
-            }
+            timer -= Time.deltaTime;
+        }
+        else
+        {
+            //fade.FadePanel();
+            fade.isFaded = true;
+            canvas.GetComponent<CanvasGroup>().alpha = 0;
+            canvas.enabled = false;
+            upgradeScreen.OpenUpgradeScreen();
+            transitioning = false;
         }
     }
 
@@ -85,5 +87,6 @@ public class EndDayCanvas : MonoBehaviour
     public void transition()
     {
         transitioning = true;
+        timer = 5;
     }
 }
