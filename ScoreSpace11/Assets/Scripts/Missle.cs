@@ -8,6 +8,7 @@ public class Missle : MonoBehaviour
     private float countdown; //Target thingy shows up as this counts down
     private bool buildup; //Is the missle in the background, or about to come crashing?
     private Vector3 target; //Whatever the player's position is when phases shift
+    private FieldManager fm;
     private SpriteRenderer sr;
     [SerializeField] int dmg;
     [SerializeField] Sprite missle2;
@@ -21,11 +22,16 @@ public class Missle : MonoBehaviour
         countdown = 100;
         buildup = false;
         sr = gameObject.GetComponent<SpriteRenderer>();
+        fm = FindObjectOfType<FieldManager>();
     }
 
     // Update is called once per frame
     void Update()
     {
+        if(fm.nightTimer <= 0)
+        {
+            Destroy(this.gameObject);
+        }
         if(!buildup)
         {
             this.transform.position += new Vector3(speed*Time.deltaTime, 0, 0);

@@ -6,7 +6,7 @@ public class FieldManager : MonoBehaviour
 {
 
     //[SerializeField] private float nightLength;
-    [SerializeField] private float nightTimer;
+    [SerializeField] public float nightTimer;
     [SerializeField] private int levelNum;
     [SerializeField] private Canvas scoreUI;
     
