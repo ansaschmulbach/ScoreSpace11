@@ -29,9 +29,6 @@ public class EndDayCanvas : MonoBehaviour
         headline.transform.position = new Vector3(500,-320,0);
         //fade.FadePanel();
         gameState = GameManager.instance.gameState;
-        cowR.text = "Cows rescued: " + gameState.cow;
-        milkR.text = "Score: " + gameState.score;
-        moneyR.text = "Milk Extracted:  " + gameState.money;
         headline.enabled = true;
         velocity = new Vector3(0,3,0);
         transitioning = false;
@@ -66,6 +63,9 @@ public class EndDayCanvas : MonoBehaviour
 
     public void showResults()
     {
+        cowR.text = "Cows rescued: " + gameState.cow;
+        milkR.text = "Score: " + gameState.score;
+        moneyR.text = "Milk Extracted:  " + gameState.money;
         fade.FadePanel();
     }
 

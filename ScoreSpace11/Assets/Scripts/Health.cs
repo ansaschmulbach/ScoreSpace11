@@ -12,6 +12,7 @@ public class Health : MonoBehaviour
     [SerializeField] private Slider healthSlider;
     [SerializeField] private Image fill;
     [SerializeField] private Gradient gradient;
+    [SerializeField] private Sprite articles;
     private int health;
     private TextMeshProUGUI healthTxt;
     private FadeCanvas healthBox;
