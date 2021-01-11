@@ -7,6 +7,7 @@ TagManager:
   - Cow
   - Bomb Cow
   - Fake Cow
+  - newspaper
   layers:
   - Default
   - TransparentFX

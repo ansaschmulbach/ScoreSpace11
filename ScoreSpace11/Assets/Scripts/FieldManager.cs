@@ -11,6 +11,7 @@ public class FieldManager : MonoBehaviour
     private LevelGenerator.Level level;
     [SerializeField] private Canvas scoreUI;
     private UpgradeScreen upgradeScreen;
+    private EndDayCanvas endDay;
     private LevelGenerator levelGenerator;
     private ScoreDisplay scoreDisplay;
     private LastLevelManager lastLevelManager;
@@ -24,6 +25,7 @@ public class FieldManager : MonoBehaviour
         inNight = true;
         lastLevel = false;
         upgradeScreen = FindObjectOfType<UpgradeScreen>();
+        endDay = FindObjectOfType<EndDayCanvas>();
         levelGenerator = FindObjectOfType<LevelGenerator>();
         scoreDisplay = scoreUI.GetComponent<ScoreDisplay>();
         lastLevelManager = GetComponent<LastLevelManager>();
@@ -79,13 +81,16 @@ public class FieldManager : MonoBehaviour
         StartLevel();
     }
     
-    void LaunchUpdatesScreen()
+    void LaunchUpdatesScreen() //Now it shows the resulsts screen
     {
         levelGenerator.Clear();
         player.GetComponent<SpaceShipMovement>().enabled = false;
         player.GetComponentInChildren<SpaceShipPosession>().enabled = false;
         scoreUI.enabled = false;
-        upgradeScreen.OpenUpgradeScreen();
+        endDay.canvas.enabled = true;
+        endDay.reset();
+        endDay.showResults();
+        //upgradeScreen.OpenUpgradeScreen();
     }
     
 }
