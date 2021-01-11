@@ -2841,7 +2841,7 @@ PrefabInstance:
     - target: {fileID: 1814199570746278228, guid: bd1960a112dbb4a9fbc2f0955d0c103f,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.9238331
+      value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 1814199570746278228, guid: bd1960a112dbb4a9fbc2f0955d0c103f,
         type: 3}
@@ -7445,8 +7445,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   levels:
   - levelLength: 40
-    totalCows: 2
-    cowCounts: 020000000000000000000000000000000000000000000000
+    totalCows: 10
+    cowCounts: 0a0000000000000000000000000000000000000000000000
   - levelLength: 30
     totalCows: 20
     cowCounts: 0a0000000a00000000000000000000000000000000000000
