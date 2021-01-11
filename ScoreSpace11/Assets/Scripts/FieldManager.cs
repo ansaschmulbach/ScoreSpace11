@@ -93,7 +93,9 @@ public class FieldManager : MonoBehaviour
     {
         levelGenerator.Clear();
         player.GetComponent<SpaceShipMovement>().enabled = false;
-        player.GetComponentInChildren<SpaceShipPosession>().enabled = false;
+        SpaceShipPosession pos = player.GetComponentInChildren<SpaceShipPosession>();
+        pos.CancelBeam();
+        pos.enabled = false;
         scoreUI.enabled = false;
         endDay.canvas.enabled = true;
         endDay.reset();
