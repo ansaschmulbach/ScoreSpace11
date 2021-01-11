@@ -17,7 +17,4 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EnterName.unity
     guid: bbe926e69a69f9b4e882bd13744b8a96
-  - enabled: 1
-    path: Assets/Scenes/Field 1.unity
-    guid: 4540d1e7891ad41cc85c024434ba2beb
   m_configObjects: {}
