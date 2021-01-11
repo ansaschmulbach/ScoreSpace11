@@ -53,6 +53,7 @@ public class GameManager : MonoBehaviour
     }
     public void LoadToMain()
     {
+        instance.gameState = new GameState();
         SceneManager.LoadScene("MainMenu");
     }
     public void LoadToCredits()
