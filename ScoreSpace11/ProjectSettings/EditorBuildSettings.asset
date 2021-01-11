@@ -17,4 +17,7 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/EnterName.unity
     guid: bbe926e69a69f9b4e882bd13744b8a96
+  - enabled: 1
+    path: Assets/Scenes/Field Copy.unity
+    guid: ceea28a5700894e64bc065a6276c5d5a
   m_configObjects: {}

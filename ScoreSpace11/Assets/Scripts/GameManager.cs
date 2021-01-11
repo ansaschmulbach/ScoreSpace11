@@ -33,7 +33,7 @@ public class GameManager : MonoBehaviour
     public void LoadGame()
     {
         manager.StopBgSound();
-        SceneManager.LoadScene("Field");
+        SceneManager.LoadScene("Field Copy");
         manager.StartGameSound();
     }
 
