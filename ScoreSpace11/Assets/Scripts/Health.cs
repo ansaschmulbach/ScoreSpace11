@@ -15,6 +15,7 @@ public class Health : MonoBehaviour
     private int health;
     private TextMeshProUGUI healthTxt;
     private FadeCanvas healthBox;
+    private AudioManager manager;
 
     void Start()
     {
@@ -26,6 +27,7 @@ public class Health : MonoBehaviour
         }
         healthBox = (FadeCanvas)GameObject.Find("dmgBox").GetComponent<FadeCanvas>();
         healthTxt = GameObject.Find("dmgBox").GetComponent<TextMeshProUGUI>();
+        manager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
     }
 
     private void Update()
@@ -48,6 +50,7 @@ public class Health : MonoBehaviour
         if (this.gameObject.CompareTag("Player") && amount > 0)
         {
             StartCoroutine(DisplayHealthLoss(amount));
+            manager.StartDmgSound();
         }
 
         if (health == 0)

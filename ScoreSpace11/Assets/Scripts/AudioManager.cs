@@ -11,7 +11,8 @@ public class AudioManager : MonoBehaviour
     private AudioSource BgSource;
     public AudioClip soundAffectMenu;
     public AudioClip soundAffectGame;
-
+    public AudioClip soundAffectBeam;
+    public AudioClip soundAffectDmg;
     private void Awake()
     {
         DontDestroyOnLoad(transform.gameObject);
@@ -31,6 +32,16 @@ public class AudioManager : MonoBehaviour
     public void StartGameSound()
     {
         this.StartBgSound(soundAffectGame, new Vector3(0, 0, 0));
+    }
+
+    public void StartBeamSound()
+    {
+        PlayAtPoint(soundAffectBeam, new Vector3(0, 0, 0));
+    }
+    public void StartDmgSound()
+    {
+        print("damageSOUND!");
+        PlayAtPoint(soundAffectDmg, new Vector3(0, 0, 0));
     }
 
     public void StartBgSound(AudioClip clip, Vector3 position, float volume = 1f)
