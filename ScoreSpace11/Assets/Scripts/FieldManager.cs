@@ -81,6 +81,7 @@ public class FieldManager : MonoBehaviour
     {
         if (lastLevel)
         {
+            scoreDisplay.Open();
             return;
         }
         levelNum++;
