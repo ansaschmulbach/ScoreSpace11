@@ -6,7 +6,7 @@ using UnityEngine.Networking;
 public class ScoreBoard : MonoBehaviour
 {
     const string publicCode = "5ff7d3190af26924d02fc9c6";
-    const string webURL = "http://dreamlo.com/lb/";
+    const string webURL = "http://www.dreamlo.com/lb/";
     private string privateCode = "Test";
     public Highscore[] highscoresList;
     DisplayScores highscoresDisplay;
