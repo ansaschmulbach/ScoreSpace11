@@ -15,8 +15,16 @@ public class AudioManager : MonoBehaviour
     public AudioClip soundAffectDmg;
     private void Awake()
     {
-        DontDestroyOnLoad(transform.gameObject);
-        manager = this;
+        if (manager == null)
+        {
+            DontDestroyOnLoad(transform.gameObject);
+            manager = this;
+        }
+        else if (manager != this)
+        {
+            Destroy(this.gameObject);
+        }
+
     }
 
     // Start is called before the first frame update

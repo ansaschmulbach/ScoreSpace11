@@ -56,6 +56,10 @@ public class ScoreBoard : MonoBehaviour
             print(highscoresList[i].username + " : " + highscoresList[i].score);
         }
     }
+    public void returnToMainMenu()
+    {
+        GameManager.instance.LoadToMain();
+    }
 }
 public struct Highscore
 {

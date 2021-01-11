@@ -30,4 +30,8 @@ public class MainMenuScript : MonoBehaviour
     {
         GameManager.instance.LoadToLeaderboard();
     }
+    public void callTutorialTransition()
+    {
+        GameManager.instance.LoadTutorial();
+    }
 }
