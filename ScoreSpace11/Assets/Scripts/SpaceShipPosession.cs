@@ -166,7 +166,7 @@ public class SpaceShipPosession : MonoBehaviour
     public IEnumerator DisplayBonusPoints(int pts)
     {
         pointsBox.FadePanel();
-        bonusPtsTxt.text = "+ " + pts + " pts";
+        bonusPtsTxt.text = "+ " + pts + " Combo Bonus!";
         yield return new WaitForSeconds(1);
         pointsBox.FadePanel();
         yield return null;
