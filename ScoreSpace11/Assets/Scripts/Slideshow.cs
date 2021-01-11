@@ -20,7 +20,7 @@ public class Slideshow : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Input.GetMouseButtonUp(0) && index < slide.Count)
+        if (Input.GetMouseButtonUp(0) && index < slides.Count)
         {
             index++;
             if (index == slides.Count)

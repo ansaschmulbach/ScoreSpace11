@@ -17,12 +17,15 @@ public class FieldManager : MonoBehaviour
     private ScoreDisplay scoreDisplay;
     private LastLevelManager lastLevelManager;
     private GameObject player;
+    
     private bool inNight;
     private bool lastLevel;
+    public int cowsThisLevel;
 
     void Start()
     {
         levelNum = 0;
+        cowsThisLevel = 0;
         inNight = true;
         lastLevel = false;
         upgradeScreen = FindObjectOfType<UpgradeScreen>();
@@ -39,8 +42,7 @@ public class FieldManager : MonoBehaviour
     {
 
         nightTimer -= Time.deltaTime;   
-        if (!lastLevel && inNight && (nightTimer <= 0 
-                                      || GameManager.instance.gameState.cow >= level.totalCows))
+        if (!lastLevel && inNight && (nightTimer <= 0 || cowsThisLevel >= level.totalCows))
         {
             inNight = false;
             LaunchUpdatesScreen();
@@ -60,6 +62,8 @@ public class FieldManager : MonoBehaviour
         level = levelGenerator.levels[levelNum];
         scoreUI.enabled = true;
         nightTimer = level.levelLength;
+        cowsThisLevel = 0;
+        
         for (int i = 0; i < level.cowCounts.Length; i++)
         {
             levelGenerator.Generate(levelGenerator.cowPrototypes[i], level.cowCounts[i]);

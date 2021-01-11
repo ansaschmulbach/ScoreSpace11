@@ -28,7 +28,6 @@ public class MissleExplosion : MonoBehaviour
 
     void OnCollisionEnter2D(Collision2D col)
     {
-        Debug.Log("Kaboom!");
         GameObject.FindGameObjectWithTag("Player").GetComponent<Health>().LoseHealth(dmg);
         Instantiate(md);
     }

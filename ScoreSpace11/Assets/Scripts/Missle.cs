@@ -51,7 +51,6 @@ public class Missle : MonoBehaviour
             if(thisMt.countdown > 0)
             {
                 thisMt.countdown -= speed*Time.deltaTime;
-                Debug.Log(thisMt.countdown);
             }
             else{
                 if(this.transform.position.y > target.y)

@@ -8,18 +8,20 @@ using TMPro;
 
 public class SpaceShipPosession : MonoBehaviour
 {
-    // Start is called before the first frame update
-
-    public List<GameObject> inTeleport;
-    public bool beaming;
+    
     [SerializeField] private float beamingTimer;
     [SerializeField] private int pointsPerCow;
     [SerializeField] public Image teleportFill;
+    
     private GameState gameState;
     public Health health;
     public TextMeshProUGUI bonusPtsTxt;
     public FadeCanvas pointsBox;
     private AudioManager manager;
+    private FieldManager fm;
+    
+    public List<GameObject> inTeleport;
+    public bool beaming;
     public bool previousSpace;
 
     void Start()
@@ -30,10 +32,12 @@ public class SpaceShipPosession : MonoBehaviour
         beaming = false;
         gameState = GameManager.instance.gameState;
         beamingTimer = gameState.timeToTeleport * gameState.multiplierTeleportSpeed;
+        
         health = GetComponentInParent<Health>();
         pointsBox = (FadeCanvas) GameObject.Find("bonusPointBox").GetComponent<FadeCanvas>();
         bonusPtsTxt = GameObject.Find("bonusPointBox").GetComponent<TextMeshProUGUI>();
         manager = GameObject.Find("AudioManager").GetComponent<AudioManager>();
+        fm = FindObjectOfType<FieldManager>();
     }
 
     // Update is called once per frame
@@ -155,6 +159,7 @@ public class SpaceShipPosession : MonoBehaviour
         gameState.score += points;
         gameState.money += milkEarned;
         gameState.cow += cowCount;
+        fm.cowsThisLevel += cowCount;
         health.LoseHealth(damage);
 
     }

@@ -3043,7 +3043,7 @@ MonoBehaviour:
     icon: {fileID: 21300000, guid: 5e973d76a2d4a44c6a28877ed0f9bd6d, type: 3}
     description: Being blown up getting ya down? With this totally legitimate armor
       plating, critical damage will be a thing of the past... and the now-more-distant-future!
-    cost: 10
+    cost: 30
     maxMult: 5
   speed:
     name: Speed
@@ -3051,7 +3051,7 @@ MonoBehaviour:
     description: Do you ever wonder what would happen if you removed the limiter
       to your ion thrusters? Us too! You will be able to save more cows this way...
       Maybe.
-    cost: 10
+    cost: 30
     maxMult: 5
   teleportSpeed:
     name: Teleport Speed
@@ -3059,13 +3059,13 @@ MonoBehaviour:
     description: Tele, better, faster, stronger. Upgrade your CattlePort to a faster
       model. Dont worry, the extra power can easily be routed from life support.
       What doesn't kill ya...
-    cost: 10
+    cost: 30
     maxMult: 5
   freeze:
     name: Freeze
     icon: {fileID: 21300000, guid: 83706cb0fe7ae4aa4ba00bd46717c1d6, type: 3}
     description: Freeze Description
-    cost: 10
+    cost: 30
     maxMult: 5
   blank:
     name: ' '
@@ -4568,9 +4568,9 @@ RectTransform:
   m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -222, y: -148}
-  m_SizeDelta: {x: -494, y: -346}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 100, y: 50}
+  m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1119477654
 MonoBehaviour:
@@ -5343,9 +5343,9 @@ RectTransform:
   m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
-  m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -222, y: -148}
-  m_SizeDelta: {x: -494, y: -346}
+  m_AnchorMax: {x: 0, y: 0}
+  m_AnchoredPosition: {x: 100, y: 50}
+  m_SizeDelta: {x: 150, y: 50}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1300867057
 MonoBehaviour:
@@ -7610,6 +7610,7 @@ MonoBehaviour:
   levelNum: 0
   scoreUI: {fileID: 1899233828}
   upgradeScreen: {fileID: 0}
+  cowsThisLevel: 0
 --- !u!4 &1900687289
 Transform:
   m_ObjectHideFlags: 0
@@ -7636,7 +7637,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6b42ebd4e6aa94f1fb7364f6c71901cb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenCows: 3
+  timeBetweenCows: 2
+  probabilities:
+  - 0.7
+  - 0.1
+  - 0.2
+  realCows:
+  - {fileID: 276311024177096204, guid: 884fcada39a084ef988843194ea06670, type: 3}
+  - {fileID: 3540766323871951565, guid: 153bb591aa2fd4ba59646963410755cc, type: 3}
+  - {fileID: 1761641529658183014, guid: 396fe4f6e2b094b6f8090edf8b60b0bf, type: 3}
 --- !u!1 &1980714775
 GameObject:
   m_ObjectHideFlags: 0
@@ -7670,10 +7679,10 @@ MonoBehaviour:
   - levelLength: 40
     totalCows: 10
     cowCounts: 0a0000000000000000000000000000000000000000000000
-  - levelLength: 20
+  - levelLength: 30
     totalCows: 20
     cowCounts: 0a0000000a00000000000000000000000000000000000000
-  - levelLength: 20
+  - levelLength: 30
     totalCows: 25
     cowCounts: 0d0000000300000007000000000000000200000000000000
   - levelLength: 45

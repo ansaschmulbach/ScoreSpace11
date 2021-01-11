@@ -31,6 +31,5 @@ public class FadeCanvas : MonoBehaviour
             yield return null;
         }
         enabled = !isFaded;
-        Debug.Log(enabled);
     }
 }

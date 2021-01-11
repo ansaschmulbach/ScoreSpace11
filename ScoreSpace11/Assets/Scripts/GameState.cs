@@ -10,7 +10,7 @@ public class GameState
     public int score = 0;
     public int money = 0;
     public int cow = 0;
-    
+
     /** Upgrades **/
     /** Teleportation **/
     public float timeToTeleport = 3.8f;
@@ -18,7 +18,7 @@ public class GameState
     public float multiplierTeleportSpeed = 1f;
 
     /** Speed **/
-    public float baseSpeed = 5;
+    public float baseSpeed = 3.5f;
     public float speedMultiplier = 1f;
 
     /** Player Health **/

@@ -41,7 +41,6 @@ public class EndDayCanvas : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log(headline.rectTransform.anchoredPosition);
         if(timer > 0 && transitioning)
         {
             if(headline.rectTransform.anchoredPosition.y < 0)
@@ -73,7 +72,6 @@ public class EndDayCanvas : MonoBehaviour
     {
         transitioning = false;
         headline.rectTransform.anchoredPosition = new Vector3(0,-400,0);
-        Debug.Log(headline.rectTransform.anchoredPosition);
         velocity = new Vector3(0,16f,0);
         index++;
         headline.sprite = newpapers[index];
@@ -90,6 +88,6 @@ public class EndDayCanvas : MonoBehaviour
     public void transition()
     {
         transitioning = true;
-        timer = 5;
+        timer = 10;
     }
 }
