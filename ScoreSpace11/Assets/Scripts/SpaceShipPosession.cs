@@ -124,6 +124,7 @@ public class SpaceShipPosession : MonoBehaviour
         }
         gameState.score += points;
         gameState.money += milkEarned;
+        gameState.cow += cowCount;
         health.LoseHealth(damage);
 
     }
