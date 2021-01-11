@@ -9,7 +9,13 @@ public class GetName : MonoBehaviour
 {
     public ScoreBoard board;
     public TMP_InputField iField;
+    [SerializeField] private TextMeshProUGUI scoreText;
     private string myName;
+
+    void Start()
+    {
+        scoreText.SetText("Score: " + GameManager.instance.gameState.score);
+    }
     
     public void storeString()
     {
