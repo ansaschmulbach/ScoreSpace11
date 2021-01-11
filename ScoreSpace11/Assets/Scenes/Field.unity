@@ -941,26 +941,36 @@ MonoBehaviour:
     icon: {fileID: 21300000, guid: 5e973d76a2d4a44c6a28877ed0f9bd6d, type: 3}
     description: Shield Description
     cost: 10
+    currMult: 1
+    maxMult: 5
   speed:
     name: Speed
     icon: {fileID: 21300000, guid: 2b11ee4310c54467fb663471360b3d25, type: 3}
     description: Speed Description
     cost: 10
+    currMult: 1
+    maxMult: 5
   teleportSpeed:
     name: Teleport Speed
     icon: {fileID: 21300000, guid: 7fb98f62b7081458688ad52522f1bf29, type: 3}
     description: Teleport Speed Description
     cost: 10
+    currMult: 1
+    maxMult: 5
   freeze:
     name: Freeze
     icon: {fileID: 21300000, guid: 83706cb0fe7ae4aa4ba00bd46717c1d6, type: 3}
     description: Freeze Description
     cost: 10
+    currMult: 1
+    maxMult: 5
   blank:
     name: ' '
     icon: {fileID: 21300000, guid: 2201d16eae2a345458fa67e22df76246, type: 3}
     description: 
     cost: 0
+    currMult: 0
+    maxMult: 0
   milk: {fileID: 374006478}
   purchaseButton: {fileID: 1698647407}
   shieldStatus: {fileID: 654961717}
