@@ -20,6 +20,7 @@ public class ScoreDisplay : MonoBehaviour
     [SerializeField] private TextMeshProUGUI teleSpeedStat;
     [SerializeField] private TextMeshProUGUI weaponStat;
 
+    
     void Start()
     {
         gameState = GameManager.instance.gameState;
@@ -51,5 +52,6 @@ public class ScoreDisplay : MonoBehaviour
         float angle = ratioTimeElapsed * 180 - 90;
         pointer.transform.eulerAngles = new Vector3(0, 0, angle);
     }
+    
     
 }
