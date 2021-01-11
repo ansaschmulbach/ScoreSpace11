@@ -39,7 +39,8 @@ public class FieldManager : MonoBehaviour
     {
 
         nightTimer -= Time.deltaTime;   
-        if (!lastLevel && inNight && nightTimer <= 0)
+        if (!lastLevel && inNight && (nightTimer <= 0 
+                                      || GameManager.instance.gameState.cow >= level.totalCows))
         {
             inNight = false;
             LaunchUpdatesScreen();
