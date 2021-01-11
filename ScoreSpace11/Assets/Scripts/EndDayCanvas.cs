@@ -32,7 +32,7 @@ public class EndDayCanvas : MonoBehaviour
         //fade.FadePanel();
         gameState = GameManager.instance.gameState;
         headline.enabled = true;
-        velocity = new Vector3(0,0.5f,0);
+        velocity = new Vector3(0,6f,0);
         transitioning = false;
         index = -1;
     }
@@ -45,6 +45,11 @@ public class EndDayCanvas : MonoBehaviour
             if(headline.transform.position.y < 300)
             {
                 headline.transform.position += velocity;
+                velocity = new Vector3(0,velocity.y - Time.deltaTime*7f, 0);
+                if(velocity.y < 0)
+                {
+                    velocity.y = 0.05f;
+                }
             }
             else
             {
