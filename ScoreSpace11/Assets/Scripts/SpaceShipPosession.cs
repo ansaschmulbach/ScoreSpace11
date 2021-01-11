@@ -14,6 +14,7 @@ public class SpaceShipPosession : MonoBehaviour
     public bool beaming;
     [SerializeField] private float beamingTimer;
     [SerializeField] private int pointsPerCow;
+    [SerializeField] public Image teleportFill;
     private GameState gameState;
     public Health health;
     public TextMeshProUGUI bonusPtsTxt;
@@ -24,6 +25,7 @@ public class SpaceShipPosession : MonoBehaviour
     void Start()
     {
         inTeleport = new List<GameObject>();
+        teleportFill.fillAmount = 0;
         previousSpace = false;
         beaming = false;
         gameState = GameManager.instance.gameState;
@@ -50,6 +52,7 @@ public class SpaceShipPosession : MonoBehaviour
         else if (beaming) 
         {
             beamingTimer -= Time.deltaTime;
+            UpdateTeleportFill();
         } 
         else if (Input.GetKeyDown(KeyCode.Space) && !previousSpace)
         {
@@ -57,9 +60,10 @@ public class SpaceShipPosession : MonoBehaviour
             StartBeam();
         }
     }
-    void CancelBeam()
+    public void CancelBeam()
     {
         beaming = false;
+        teleportFill.fillAmount = 0;
         for (int i = inTeleport.Count - 1; i >= 0; i--)
         {
             GameObject obj = inTeleport[i];
@@ -74,10 +78,11 @@ public class SpaceShipPosession : MonoBehaviour
 
     }
 
-    void StartBeam()
+    public void StartBeam()
     {
         beaming = true;
         beamingTimer = gameState.timeToTeleport / gameState.multiplierTeleportSpeed;
+        UpdateTeleportFill();
         manager.StartBeamSound();
         foreach (GameObject obj in inTeleport)
         {
@@ -88,18 +93,20 @@ public class SpaceShipPosession : MonoBehaviour
         }
     }
 
+    void UpdateTeleportFill()
+    {
+        float timeLeft = beamingTimer / (gameState.timeToTeleport / gameState.multiplierTeleportSpeed);
+        teleportFill.fillAmount = 1 - timeLeft;
+    }
+
     private void OnTriggerEnter2D(Collider2D other)
     {
-        
-        
         if (other.TryGetComponent(out CowController cowController))
         {
-
             if (beaming)
             {
                 cowController.Teleport();   
             }
-            
             inTeleport.Add(other.gameObject);
         }
         
@@ -107,7 +114,6 @@ public class SpaceShipPosession : MonoBehaviour
 
     private void OnTriggerExit2D(Collider2D other)
     {
-        
         if (other.TryGetComponent(out CowController cowController))
         {
             cowController.StopTeleport();
@@ -117,7 +123,6 @@ public class SpaceShipPosession : MonoBehaviour
 
     private void Beam()
     {
-
         int cowCount = 0;
         int points = 0;
         int milkEarned = 0;
@@ -137,9 +142,7 @@ public class SpaceShipPosession : MonoBehaviour
                 {
                     cowCount++;
                 }
-                
             }
-
             Destroy(obj);
         }
 
