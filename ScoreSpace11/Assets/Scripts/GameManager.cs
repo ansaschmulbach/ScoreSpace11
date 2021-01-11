@@ -39,7 +39,7 @@ public class GameManager : MonoBehaviour
 
     public void LoadTutorial()
     {
-        
+        SceneManager.LoadScene("Tutorial");
     }
 
     public void LoadEnterName()
@@ -50,6 +50,14 @@ public class GameManager : MonoBehaviour
     public void LoadToLeaderboard()
     {
         SceneManager.LoadScene("leaderboard");
+    }
+    public void LoadToMain()
+    {
+        SceneManager.LoadScene("MainMenu");
+    }
+    public void LoadToCredits()
+    {
+        SceneManager.LoadScene("Credits");
     }
 
 }
