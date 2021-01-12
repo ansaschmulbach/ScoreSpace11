@@ -26,6 +26,7 @@ public class Slideshow : MonoBehaviour
             if (index == slides.Count)
             {
                 SceneManager.LoadScene("MainMenu");
+                return;
             }
             slideshow.sprite = slides[index];
         }
