@@ -43,6 +43,7 @@ public class UpgradeScreen : MonoBehaviour
         public Sprite icon;
         public string description;
         public int cost;
+        public float mult;
         public float maxMult;
 
         public override bool Equals(object obj)
@@ -131,19 +132,20 @@ public class UpgradeScreen : MonoBehaviour
         if (selected.Equals(shield))
         {
             gameState.healthMultiplier =
-                ApplyMultiplier(gameState.healthMultiplier);
+                ApplyMultiplier(shield, gameState.healthMultiplier);
             Health health = player.GetComponent<Health>();
             health.Multiply(gameState.healthMultiplier);
         } 
         else if (selected.Equals(teleportSpeed))
         {
             gameState.multiplierTeleportSpeed = 
-                ApplyMultiplier(gameState.multiplierTeleportSpeed);
+                ApplyMultiplier(teleportSpeed, 
+                    gameState.multiplierTeleportSpeed);
         } 
         else if (selected.Equals(speed))
         {
             gameState.speedMultiplier = 
-                ApplyMultiplier(gameState.speedMultiplier);
+                ApplyMultiplier(speed, gameState.speedMultiplier);
         }
 
         gameState.money -= selected.cost;
@@ -170,9 +172,9 @@ public class UpgradeScreen : MonoBehaviour
         
     }
 
-    float ApplyMultiplier(float oldMult)
+    float ApplyMultiplier(Upgrade upgrade, float oldMult)
     {
-        float newMult = oldMult * 1.5f;
+        float newMult = oldMult * upgrade.mult;
         return ((int) (newMult * 100)) / 100f;
     }
 
