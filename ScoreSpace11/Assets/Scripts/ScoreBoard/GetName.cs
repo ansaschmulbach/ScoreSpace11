@@ -33,6 +33,9 @@ public class GetName : MonoBehaviour
     {
         board.AddNewHighscore(this.myName, GameManager.instance.gameState.score);
         GameManager.instance.gameState.personal_best = Mathf.Max(GameManager.instance.gameState.score, GameManager.instance.gameState.personal_best);
+        //Debug.Log(GameManager.instance.gameState.personal_best);
+        GameManager.instance.sm.SaveRecord();
+        GameManager.instance.sm.saveDataToDisk();
         GameManager.instance.LoadToLeaderboard();
     }
 }
