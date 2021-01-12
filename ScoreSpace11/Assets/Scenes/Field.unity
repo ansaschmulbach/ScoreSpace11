@@ -2970,7 +2970,7 @@ MonoBehaviour:
     description: Being blown up getting ya down? With this totally legitimate armor
       plating, critical damage will be a thing of the past... and the now-more-distant-future!
     cost: 30
-    maxMult: 5
+    maxMult: 2
   speed:
     name: Speed (30 Milk)
     icon: {fileID: 21300000, guid: 2b11ee4310c54467fb663471360b3d25, type: 3}
