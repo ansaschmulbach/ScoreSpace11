@@ -12,7 +12,7 @@ public class DisplayScores : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        personal_best.text = "Personal Best - " + GameManager.instance.gameState.personal_best.ToString();
+        personal_best.text = "Personal Best - " + GameManager.instance.sm.savePB.personal_best.ToString();
         for (int i = 0; i < highscoreText.Length; i++)
         {
             highscoreText[i].text = i + 1 + ". Fetching...";
