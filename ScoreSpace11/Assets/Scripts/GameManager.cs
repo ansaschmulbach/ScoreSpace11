@@ -56,7 +56,7 @@ public class GameManager : MonoBehaviour
     }
     public void LoadToMain()
     {
-        instance.gameState.reset();
+        instance = new GameManager();
         SceneManager.LoadScene("MainMenu");
     }
     public void LoadToCredits()
